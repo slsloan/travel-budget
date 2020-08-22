@@ -1,6 +1,7 @@
-MONGODB_URI=[your_mongodb_uri]
+MONGODB_URI=mongodb+srv://dbUser:4,u%5\>f3vWGDHet@cluster0.rkarf.mongodb.net/dbUser?retryWrites=true&w=majority
 
 NODEMAILER_USER=[your_nodemailer_gmail_username]
+
 NODEMAILER_PASS=[your_nodemailer_gmail_password]
 
 EMAIL=[your_email_address]
