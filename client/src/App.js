@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
 // page components
-import Home from "./pages/Home";
-import Budget from "./pages/Budget";
+import Login from "./pages/Login";
+import Trip from "./pages/Trip";
 import NotFound from "./pages/NotFound";
 
 // components
