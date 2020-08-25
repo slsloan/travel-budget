@@ -1,7 +1,1 @@
-MONGODB_URI=mongodb+srv://dbUser:4,u%5\>f3vWGDHet@cluster0.rkarf.mongodb.net/dbUser?retryWrites=true&w=majority
-
-NODEMAILER_USER=[your_nodemailer_gmail_username]
-
-NODEMAILER_PASS=[your_nodemailer_gmail_password]
-
-EMAIL=[your_email_address]
+MONGODB_URI=mongodb+srv://dbUser:AnZ6CtuzcZTTtgtK@cluster0.rkarf.mongodb.net/Tripdb?retryWrites=true&w=majorityn
