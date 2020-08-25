@@ -19,15 +19,15 @@ function App() {
   return (
     <Router>
       <div id="app-content">
-        <Navbar/>
-        <div id="router-content">
+        <Navbar />
+        <div id="router-content" className="background-picture">
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/trip" component={Trip} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );
