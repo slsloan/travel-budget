@@ -13,7 +13,7 @@ const Navbar = (props) => {
                         <Link to="/" className="brand-logo">Travel Budget</Link>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li><NavLink exact to="/">Login</NavLink></li>
-                            <li><NavLink exact to="/contact">Trips</NavLink></li>
+                            <li><NavLink exact to="/trip">Trips</NavLink></li>
                         </ul>
                     </div>
                 </div>

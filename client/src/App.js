@@ -22,8 +22,8 @@ function App() {
         <Navbar/>
         <div id="router-content">
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/budget" component={Budget} />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/trip" component={Trip} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
