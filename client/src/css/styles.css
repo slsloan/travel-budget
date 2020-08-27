@@ -105,12 +105,6 @@ nav a.active {
   font-weight: 700;
 }
 
-.card img,
-.card p,
-.card span {
-  color: #000000;
-}
-
 .success {
   color: #26a69a;
   font-family: "Roboto", sans-serif;
