@@ -1,9 +1,8 @@
 import React from "react";
-import LoginCard from "../components/LoginCard";
+import AccountCard from "../components/AccountCard";
 import CreateAccountBtn from "../components/CreateAccountBtn";
-import { Link, useLocation } from "react-router-dom";
 
-const Login = () => {
+const Account = () => {
   return (
     <div className="login-page">
       {" "}
@@ -11,14 +10,13 @@ const Login = () => {
       <main>
         <center className="login-div">
           <div className="section"></div>
-          <h5 className="login-header">Please, login into your account</h5>
+          <h5 className="login-header">Create Account</h5>
           <div className="section"></div>
-          <LoginCard></LoginCard>
-          <CreateAccountBtn></CreateAccountBtn>
+          <AccountCard></AccountCard>
         </center>
       </main>
     </div>
   );
 };
 
-export default Login;
+export default Account;
