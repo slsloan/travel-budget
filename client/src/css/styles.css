@@ -133,6 +133,11 @@ nav a.active {
   color: #31708e;
 }
 
+.login-div {
+  margin-top: 25px;
+  margin-bottom: 75px;
+}
+
 .login-card {
   background-color: #f7f9fb;
   min-width: 500px;
@@ -148,11 +153,9 @@ nav a.active {
 }
 
 .login-create-account {
-  color: #8fc1e3;
-  background-color: white;
+  color: #f7f9fb;
+  background-color: #31708e;
   font-weight: bold;
-  padding: 10px;
-  border-radius: 25px;
 }
 
 .nav-style {

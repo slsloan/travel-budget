@@ -5,6 +5,7 @@ import axios from "axios";
 
 // page components
 import Login from "./pages/Login";
+import Account from "./pages/Account";
 import Trip from "./pages/Trip";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ function App() {
         <div id="router-content" className="background-picture">
           <Switch>
             <Route exact path="/" component={Login} />
+            <Route exact path="/account" component={Account} />
             <Route exact path="/trip" component={Trip} />
             <Route exact path="/budget" component={Budget} />
             <Route path="*" component={NotFound} />
