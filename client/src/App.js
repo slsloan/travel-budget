@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 // components
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Budget from "./components/Budget";
 
 // styles
 import "./css/styles.css";
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/" component={Login} />
             <Route exact path="/account" component={Account} />
             <Route exact path="/trip" component={Trip} />
+            <Route exact path="/budget" component={Budget} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

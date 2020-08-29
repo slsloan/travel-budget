@@ -7,7 +7,7 @@ const Footer = (props) => {
   // destructure profile
 
   return (
-    <footer className="page-footer footer-style">
+    <footer className="page-footer footer-style" style={{zIndex: "1"}}>
       <div className="container">
         <div className="row">
           <div className="col s12 m6">

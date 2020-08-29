@@ -6,7 +6,7 @@ const Navbar = (props) => {
   // destructure profile
 
   return (
-    <nav className="nav-style">
+    <nav className="nav-style" style={{zIndex: "1"}}>
       <div className="container">
         <div className="row">
           <div className="col s12">
