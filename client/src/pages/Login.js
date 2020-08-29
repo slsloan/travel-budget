@@ -1,7 +1,6 @@
 import React from "react";
 import LoginCard from "../components/LoginCard";
 import CreateAccountBtn from "../components/CreateAccountBtn";
-import { Link, useLocation } from "react-router-dom";
 
 const Login = () => {
   return (
