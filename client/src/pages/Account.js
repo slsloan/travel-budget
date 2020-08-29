@@ -2,6 +2,7 @@ import React from "react";
 import AccountCard from "../components/AccountCard";
 import CreateAccountBtn from "../components/CreateAccountBtn";
 
+
 const Account = () => {
   return (
     <div className="login-page">
