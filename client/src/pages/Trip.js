@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-const Trip = () => {
-  return <p>Hello Trip!</p>;
-=======
 import Budget from "../components/Budget";
 
 const Trip = () => {
@@ -59,7 +54,6 @@ const Trip = () => {
       </div>
     </div>
   );
->>>>>>> 2f287d4d4c943ee7dd3704a343b796162337a6e6
 };
 
 export default Trip;
