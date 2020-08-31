@@ -12,8 +12,8 @@ const Login = () => {
           <div className="section"></div>
           <h5 className="login-header">Please, login into your account</h5>
           <div className="section"></div>
-          <LoginCard></LoginCard>
-          <CreateAccountBtn></CreateAccountBtn>
+          <LoginCard />
+          <CreateAccountBtn />
         </center>
       </main>
     </div>
