@@ -1,11 +1,11 @@
 // dependencies
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
 // page components
 import Login from "./pages/Login";
-import Account from "./pages/Account";
+import Account from "./pages/Signup";
 import Trip from "./pages/Trip";
 import NotFound from "./pages/NotFound";
 
@@ -18,6 +18,8 @@ import Budget from "./components/Budget";
 import "./css/styles.css";
 
 function App() {
+
+
   return (
     <Router>
       <div id="app-content">
