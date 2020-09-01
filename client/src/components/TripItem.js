@@ -8,6 +8,7 @@ const TripItem = ({ location, isSelected, selectTrip }) => {
       className="collection-item"
       isSelected={isSelected}
       onClick={selectTrip}
+      style={{color: "#5085a5"}}
     >
       {location}
       <span style={{ float: "right" }}>

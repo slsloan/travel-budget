@@ -70,7 +70,7 @@ const Trip = () => {
             )}
             <Link
               to={"/trip"}
-              className="new-trip collection-item white-text"
+              className="waves-effect btn collection-item white-text"
               style={{ backgroundColor: "#31708E" }}
             >
               Create A Trip

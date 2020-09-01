@@ -113,6 +113,15 @@ nav a.active {
   line-height: 36px;
 }
 
+.collection {
+  border: 0px;
+  border-radius: 5px;
+}
+
+.collection-item {
+  color: #5085a5;
+}
+
 /* custom styles */
 .login-input input[type="date"]:focus + label,
 .login-input input[type="text"]:focus + label,
@@ -174,3 +183,4 @@ nav a.active {
   -o-background-size: cover;
   background-size: cover;
 }
+
