@@ -5,7 +5,7 @@ import axios from "axios";
 
 // page components
 import Login from "./pages/Login";
-import Account from "./pages/Account";
+import Account from "./pages/Signup";
 import Trip from "./pages/Trip";
 import NotFound from "./pages/NotFound";
 

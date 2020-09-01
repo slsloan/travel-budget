@@ -1,1 +1,1 @@
-MONGODB_URI=mongodb+srv://dbUser:AnZ6CtuzcZTTtgtK@cluster0.rkarf.mongodb.net/Tripdb?retryWrites=true&w=majorityn
+MONGODB_URI=mongodb+srv://dbUser:AnZ6CtuzcZTTtgtK@cluster0.rkarf.mongodb.net/Tripdb?retryWrites=true&w=majority

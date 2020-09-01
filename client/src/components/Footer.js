@@ -23,23 +23,6 @@ const Footer = (props) => {
           </div>
         </div>
       </div>
-      <div className="footer-copyright">
-        <div className="container">
-          <div className="row">
-            <div className="col s12 m6">
-              <span className="fuck">{`© Copyright ${new Date().getFullYear()}`}</span>
-            </div>
-            <div className="col s12 m4 offset-m2">
-              <a href="github.com" rel="noopener noreferrer" target="_blank">
-                <FontAwesomeIcon icon={faGithubSquare} />
-              </a>
-              <a href="linkedin.com" rel="noopener noreferrer" target="_blank">
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
   );
 };
