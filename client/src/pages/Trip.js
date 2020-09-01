@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
 import projectData from "../data/projects.json";
+import axios from "axios";
 
 const Trip = () => {
   const [tripInfo, setTripInfo] = useState({
@@ -9,7 +11,18 @@ const Trip = () => {
     selectedTrip: null,
   });
 
+  // const [trips, setTrips] = useState([]);
+  // const [selectedTrip, setSelectedTrips] = useState({});
+
   const { selectedTrip, trips } = tripInfo;
+
+  // useEffect(() => {
+  //   axios.get('/trips-route')
+  //     .then(res => setTrips(res.data))
+  //     .catch(err => console.log(err))
+  // }, [])
+
+  // setTrips(projectData);
 
   return (
     <div className="container">
@@ -21,13 +34,17 @@ const Trip = () => {
             className="sidenav sidenav-fixed collection with-header"
             style={{
               zIndex: "0",
-              height: "300px",
+              height: "auto",
+              maxHeight: "300px",
               marginTop: "85px",
               marginLeft: "20px",
               paddingBottom: "0",
             }}
           >
-            <li className="collection-header">
+            <li
+              className="collection-header white-text"
+              style={{ backgroundColor: "#31708E" }}
+            >
               <h4>
                 Trips
                 <span style={{ float: "right" }}>
@@ -39,14 +56,28 @@ const Trip = () => {
             </li>
             {trips ? (
               trips.map((trip) => (
-              <TripItem
-                key={trip.id}
-                location={trip.name}
-                isSelected={trip === selectedTrip}
-                selectTrip={() => setTripInfo({ ...trips, selectedTrip: trip })}
-              />
-            ))) : (<p>Create a Trip</p>)}
-            
+                <TripItem
+                  key={trip.id}
+                  location={trip.name}
+                  isSelected={trip === selectedTrip}
+                  selectTrip={() =>
+                    setTripInfo({ ...tripInfo, selectedTrip: trip })
+                  }
+                />
+              ))
+            ) : (
+              <p>No trips</p>
+            )}
+            <Link
+              to={"/trip"}
+              className="new-trip collection-item white-text"
+              style={{ backgroundColor: "#31708E" }}
+            >
+              Create A Trip
+              <span style={{ float: "right" }}>
+                <i className="material-icons">add</i>
+              </span>
+            </Link>
           </ul>
         </div>
         <div class="col s6 m6">
@@ -58,7 +89,9 @@ const Trip = () => {
               link={selectedTrip.github}
             />
           ) : (
-            <h3>Click on a trip to see details</h3>
+            <div className="card-panel large center">
+              <h3>Click on a trip to see details</h3>
+            </div>
           )}
         </div>
       </div>
