@@ -39,9 +39,8 @@ router.use('/account/signup', (req, res) => {
         });
     }
 
-    firstName = firstName.charAt(0).toUpperCase();
-    lastName = lastName.charAt(0).toUpperCase();
-    email = email.toLowerCase().trim();
+    email = email.toLowerCase()
+    email = email.trim();
 
     User.find({
         email: email
@@ -57,7 +56,7 @@ router.use('/account/signup', (req, res) => {
                 message: 'Error: Account already exist.'
             });
         }
-        // Save the new userx
+        // Save the new user
         const newUser = new User();
         newUser.email = email;
         newUser.password = password;
