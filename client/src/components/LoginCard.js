@@ -1,10 +1,13 @@
 // dependencies
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginCard = (props) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
       <form className="col s12" method="post">
+        <i className="large material-icons account-login">flight</i>
+        <h5 className="login-header">Please, login into your account</h5>
         <div className="row">
           <div className="col s12"></div>
         </div>
@@ -33,11 +36,6 @@ const LoginCard = (props) => {
             />
             <label type="password"></label>
           </div>
-          <label>
-            <a className="login-password" href="#!">
-              <b>Forgot Password?</b>
-            </a>
-          </label>
         </div>
 
         <br />
@@ -50,6 +48,17 @@ const LoginCard = (props) => {
             >
               Login
             </button>
+          </div>
+          <div className="row">
+            <label>
+              <b>Create an account?</b>
+              <Link to="/account">
+                {" "}
+                <a>
+                  Sign up
+                </a>
+              </Link>
+            </label>
           </div>
         </center>
       </form>

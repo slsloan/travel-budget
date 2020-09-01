@@ -34,10 +34,6 @@ footer a svg {
   width: 2.5rem !important;
 }
 
-footer .footer-copyright .row {
-  margin: 0;
-}
-
 nav a.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -129,7 +125,9 @@ nav a.active {
   box-shadow: none;
 }
 
-.login-header {
+.login-header,
+.account-login,
+.account-register {
   color: #31708e;
 }
 
