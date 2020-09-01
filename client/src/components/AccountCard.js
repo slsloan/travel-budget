@@ -13,7 +13,7 @@ const AccountCard = ({ handleNewUser, getUserInfo }) => {
             <input
               className="validate"
               type="text"
-              name="first_name"
+              name="firstName"
               id="first_name"
               placeholder="First Name"
               onChange={getUserInfo}
@@ -24,7 +24,7 @@ const AccountCard = ({ handleNewUser, getUserInfo }) => {
             <input
               className="validate"
               type="text"
-              name="last_name"
+              name="lastName"
               id="last_name"
               placeholder="Last Name"
               onChange={getUserInfo}

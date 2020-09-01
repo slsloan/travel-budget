@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import AccountCard from "../components/AccountCard";
-import CreateAccountBtn from "../components/CreateAccountBtn";
+import axios from "axios";
 
 const Account = () => {
   const [newUser, setNewUser] = useState({
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -14,7 +14,12 @@ const Account = () => {
 
   const handleNewUser = (event) => {
     event.preventDefault();
-    console.log(event.target);
+    axios.post("/api/account/signup", newUser).then((response) => {
+      if (response.status === 200) {
+        console.log("An account has been created!");
+        window.location.href = "/";
+      }
+    });
   };
 
   const getUserInfo = (event) => {
