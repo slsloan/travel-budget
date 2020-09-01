@@ -1,10 +1,10 @@
 // dependencies
 import React from "react";
 
-const LoginCard = (props) => {
+const LoginCard = ({ getUserInfo, handleUser }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
-      <form className="col s12" method="post">
+      <form className="col s12" method="post" onSubmit={handleUser}>
         <div className="row">
           <div className="col s12"></div>
         </div>
@@ -17,6 +17,7 @@ const LoginCard = (props) => {
               name="email"
               id="email"
               placeholder="Enter your email"
+              onChange={getUserInfo}
             />
             <label type="email"></label>
           </div>
@@ -30,6 +31,7 @@ const LoginCard = (props) => {
               name="password"
               id="password"
               placeholder="Enter your password"
+              onChange={getUserInfo}
             />
             <label type="password"></label>
           </div>
