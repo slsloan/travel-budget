@@ -1,56 +1,99 @@
-import React from "react";
-import Budget from "../components/Budget";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import TripItem from "../components/TripItem";
+import TripDetails from "../components/TripDetails";
+import projectData from "../data/projects.json";
+import axios from "axios";
 
 const Trip = () => {
+  const [tripInfo, setTripInfo] = useState({
+    trips: projectData,
+    selectedTrip: null,
+  });
+
+  // const [trips, setTrips] = useState([]);
+  // const [selectedTrip, setSelectedTrips] = useState({});
+
+  const { selectedTrip, trips } = tripInfo;
+
+  // useEffect(() => {
+  //   axios.get('/trips-route')
+  //     .then(res => setTrips(res.data))
+  //     .catch(err => console.log(err))
+  // }, [])
+
+  // setTrips(projectData);
+
   return (
     <div className="container">
       <br />
       <br />
       <div className="row">
-        <ul
-          className="sidenav sidenav-fixed collection with-header"
-          style={{
-            zIndex: "0",
-            height: "auto",
-            marginTop: "64px",
-            paddingBottom: "0",
-          }}
-        >
-          <li className="collection-header">
-            <h4>
-              Trips
+        <div class="col s6 m4">
+          <ul
+            className="sidenav sidenav-fixed collection with-header"
+            style={{
+              zIndex: "0",
+              height: "auto",
+              maxHeight: "300px",
+              marginTop: "85px",
+              marginLeft: "20px",
+              paddingBottom: "0",
+            }}
+          >
+            <li
+              className="collection-header white-text"
+              style={{ backgroundColor: "#31708E" }}
+            >
+              <h4>
+                Trips
+                <span style={{ float: "right" }}>
+                  <i className="material-icons" style={{ fontSize: "3rem" }}>
+                    landscape
+                  </i>
+                </span>
+              </h4>
+            </li>
+            {trips ? (
+              trips.map((trip) => (
+                <TripItem
+                  key={trip.id}
+                  location={trip.name}
+                  isSelected={trip === selectedTrip}
+                  selectTrip={() =>
+                    setTripInfo({ ...tripInfo, selectedTrip: trip })
+                  }
+                />
+              ))
+            ) : (
+              <p>No trips</p>
+            )}
+            <Link
+              to={"/trip"}
+              className="waves-effect btn collection-item white-text"
+              style={{ backgroundColor: "#31708E" }}
+            >
+              Create A Trip
               <span style={{ float: "right" }}>
-                <i className="material-icons" style={{ fontSize: "3rem" }}>
-                  landscape
-                </i>
+                <i className="material-icons">add</i>
               </span>
-            </h4>
-          </li>
-          <a href="#!" title="View Chart" className="collection-item">
-            Australia
-            <span style={{ float: "right" }}>
-              <i className="material-icons">show_chart</i>
-            </span>
-          </a>
-          <a href="#!" title="View Chart" className="collection-item">
-            Poland
-            <span style={{ float: "right" }}>
-              <i className="material-icons">show_chart</i>
-            </span>
-          </a>
-          <a href="#!" title="View Chart" className="collection-item">
-            Costa Rica
-            <span style={{ float: "right" }}>
-              <i className="material-icons">show_chart</i>
-            </span>
-          </a>
-          <a href="#!" title="View Chart" className="collection-item">
-            India
-            <span style={{ float: "right" }}>
-              <i className="material-icons">show_chart</i>
-            </span>
-          </a>
-        </ul>
+            </Link>
+          </ul>
+        </div>
+        <div class="col s6 m6">
+          {selectedTrip ? (
+            <TripDetails
+              location={selectedTrip.name}
+              details={selectedTrip.description}
+              image={selectedTrip.screenshot}
+              link={selectedTrip.github}
+            />
+          ) : (
+            <div className="card-panel large center">
+              <h3>Click on a trip to see details</h3>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
