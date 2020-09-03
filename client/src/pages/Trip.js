@@ -29,7 +29,7 @@ const Trip = () => {
       <br />
       <br />
       <div className="row">
-        <div class="col s6 m4">
+        <div className="col s6 m4">
           <ul
             className="sidenav sidenav-fixed collection with-header"
             style={{
@@ -43,7 +43,7 @@ const Trip = () => {
           >
             <li
               className="collection-header white-text"
-              style={{ backgroundColor: "#31708E" }}
+              style={{ backgroundColor: "#31708E", position: "sticky", top: 0 }}
             >
               <h4>
                 Trips
@@ -70,17 +70,16 @@ const Trip = () => {
             )}
             <Link
               to={"/budget"}
-              className="waves-effect btn collection-item white-text"
-              style={{ backgroundColor: "#31708E" }}
+              className="waves-effect white-text create_btn"
             >
               Create A Trip
-              <span style={{ float: "right" }}>
+              <span style={{ float: "right"}}>
                 <i className="material-icons">add</i>
               </span>
             </Link>
           </ul>
         </div>
-        <div class="col s6 m6">
+        <div className="col s6 m6">
           {selectedTrip ? (
             <TripDetails
               location={selectedTrip.name}

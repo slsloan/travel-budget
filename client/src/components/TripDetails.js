@@ -15,7 +15,7 @@ const TripDetails = ({ location, details, image, link }) => {
   return (
     <div class="card-panel">
       <img src={image} alt={details} width="100" hight="75" />
-      <p>{location}</p>
+      <p>{data.datasets[0].label}</p>
       <Doughnut data={data} />
       <p>{details}</p>
       <button href={link}>Learn More</button>
