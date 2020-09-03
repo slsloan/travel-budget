@@ -69,7 +69,7 @@ const Trip = () => {
               <p>No trips</p>
             )}
             <Link
-              to={"/trip"}
+              to={"/budget"}
               className="waves-effect btn collection-item white-text"
               style={{ backgroundColor: "#31708E" }}
             >

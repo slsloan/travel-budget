@@ -10,7 +10,7 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // define and configure api routes
-app.use("/api", require("./routes/signin"));
+app.use("/api", require("./routes/signup"));
 app.use("/api", require("./routes/login"));
 // app.use('/api', require('./routes/login'));
 // serve static assets in production
