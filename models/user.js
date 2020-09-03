@@ -18,14 +18,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  isDeleted: {
-    type: Boolean,
-    default: false
-  },
   signUpDate: {
     type: Date,
     default: Date.now()
-  }
+  },
+  trips: Array
 });
 
 // UserSchema.methods.generateHash = function (password) {
