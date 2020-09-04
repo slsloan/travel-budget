@@ -35,6 +35,7 @@ router.use("/login", (req, res) => {
         return res.send({
           success: true,
           message: "Logged in",
+          user: req.body.email,
         });
       }
     }

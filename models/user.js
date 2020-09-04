@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// const bcrypt = require('bcryptjs');
 const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -17,12 +17,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
+  signUpDate: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
+  trips: Array,
 });
 
 const User = mongoose.model("User", UserSchema);
-
 module.exports = User;
