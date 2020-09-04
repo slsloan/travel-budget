@@ -1,13 +1,9 @@
 // dependencies
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = (props) => {
-  // destructure profile
-
   return (
-    <footer className="page-footer footer-style" style={{zIndex: "1"}}>
+    <footer className="page-footer footer-style" style={{ zIndex: "1" }}>
       <div className="container">
         <div className="row">
           <div className="col s12 m6">
