@@ -16,11 +16,10 @@ const Login = (props) => {
     event.preventDefault();
     axios.post("/api/login", newLogin).then((response) => {
       if (response.status === 200) {
-        console.log(response.data.user);
+        console.log(response);
         console.log("Successfully logged in!");
 
-        setUser(response.data.user);
-        history.push("/trip", { email: response.data.user });
+        history.push(`/trip/${newLogin.email}`, { email: response.data.user });
       }
     });
   };

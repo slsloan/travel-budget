@@ -7,10 +7,8 @@ import projectData from "../data/projects.json";
 import axios from "axios";
 
 const Trip = (props) => {
-  // destructure props
-  const { user } = props;
-
-  console.log(user);
+  const { slug } = useParams();
+  let { history, setUser } = props;
 
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
@@ -24,9 +22,15 @@ const Trip = (props) => {
 
   useEffect(() => {
     axios
-      .get(`/api/user/find-user/${user}`)
-      .then((res) => res.data)
-      .catch((err) => console.log(err));
+      .get(`/api/user/find-user/${slug}`)
+      .then((res) => setTripInfo({ trips: res.data.trips }))
+      .catch((err) => console.log(err))
+      .then(
+        axios
+          .get(`/api/user/find-user/${slug}`)
+          .then((res) => setUser(res.data.firstName))
+          .catch((err) => console.log(err))
+      );
   }, []);
 
   // setTrips(projectData);
@@ -34,6 +38,7 @@ const Trip = (props) => {
   return (
     <div className="container">
       <br />
+
       <div className="row">
         <div className="col s4">
           <ul
@@ -74,7 +79,9 @@ const Trip = (props) => {
             ) : (
               <p>No trips</p>
             )}
+
             <Link to={"/budget"} className="waves-effect white-text create_btn">
+
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>

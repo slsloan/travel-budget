@@ -95,6 +95,19 @@ nav a.active {
   height: auto;
   width: 100%;
 }
+#welcome-user-row {
+  margin: auto;
+  margin-top: 20px;
+}
+#welcome-user {
+  margin: auto;
+  text-align: center;
+  background-color: #31708e;
+  width: 63%;
+  padding: 7px;
+  border-radius: 3px;
+  color: white;
+}
 
 /*****************
 ** Class Styles **
@@ -184,6 +197,8 @@ nav a.active {
   background-size: cover;
 }
 
+
+
 .create_btn {
   background-color: #31708e;
   color: #fff;
@@ -198,3 +213,4 @@ nav a.active {
 .create_btn:hover {
   background-color: #4b91b3;
 }
+

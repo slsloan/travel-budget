@@ -17,9 +17,8 @@ router.use("/user/add-trip", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
-router.use("/user/find-user/:user", (req, res) => {
-  console.log(user + "test");
-  User.findOne({ email: req.params.user })
+router.use("/user/find-user/:slug", (req, res) => {
+  User.findOne({ email: req.params.slug })
     .then((user) => res.status(200).json(user))
     .catch((err) => res.status(404).json(err));
 });
