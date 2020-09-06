@@ -6,10 +6,8 @@ import projectData from "../data/projects.json";
 import axios from "axios";
 
 const Trip = (props) => {
-  // destructure props
-  const { user } = props;
-
-  console.log(user);
+  const { slug } = useParams();
+  let { history, setUser } = props;
 
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
@@ -23,9 +21,15 @@ const Trip = (props) => {
 
   useEffect(() => {
     axios
-      .get(`/api/user/find-user/${user}`)
-      .then((res) => res.data)
-      .catch((err) => console.log(err));
+      .get(`/api/user/find-user/${slug}`)
+      .then((res) => setTripInfo({ trips: res.data.trips }))
+      .catch((err) => console.log(err))
+      .then(
+        axios
+          .get(`/api/user/find-user/${slug}`)
+          .then((res) => setUser(res.data.firstName))
+          .catch((err) => console.log(err))
+      );
   }, []);
 
   // setTrips(projectData);
@@ -34,6 +38,7 @@ const Trip = (props) => {
     <div className="container">
       <br />
       <br />
+
       <div className="row">
         <div class="col s6 m4">
           <ul
@@ -76,7 +81,7 @@ const Trip = (props) => {
             )}
             <Link
               to={"/budget"}
-              className="waves-effect btn collection-item white-text"
+              className="waves-effect btn collection-item white-text create-trip-button"
               style={{ backgroundColor: "#31708E" }}
             >
               Create A Trip

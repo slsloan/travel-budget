@@ -3,16 +3,17 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = (props) => {
-  // destructure profile
-
+  const user = JSON.stringify(props.user).slice(1, -1);
+  console.log(user);
   return (
-    <nav className="nav-style" style={{zIndex: "1"}}>
+    <nav className="nav-style" style={{ zIndex: "1" }}>
       <div className="container">
         <div className="row">
           <div className="col s12">
             <Link to="/" className="brand-logo">
-              Travel Budget
+              {user ? `${user}'s Travel Budget` : "Travel Budget"}
             </Link>
+
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
                 <NavLink exact to="/">

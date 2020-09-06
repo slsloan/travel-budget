@@ -95,6 +95,19 @@ nav a.active {
   height: auto;
   width: 100%;
 }
+#welcome-user-row {
+  margin: auto;
+  margin-top: 20px;
+}
+#welcome-user {
+  margin: auto;
+  text-align: center;
+  background-color: #31708e;
+  width: 63%;
+  padding: 7px;
+  border-radius: 3px;
+  color: white;
+}
 
 /*****************
 ** Class Styles **
@@ -183,4 +196,3 @@ nav a.active {
   -o-background-size: cover;
   background-size: cover;
 }
-

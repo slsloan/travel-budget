@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <div id="app-content">
-        <Navbar />
+        <Navbar user={user} />
         <div id="router-content" className="background-picture">
           <Switch>
             <Route
@@ -36,9 +36,9 @@ function App() {
             <Route exact path="/account" component={Account} />
             <Route
               exact
-              path="/trip"
-              render={() => {
-                return <Trip user={user} />;
+              path="/trip/:slug"
+              render={(props) => {
+                return <Trip {...props} user={user} setUser={setUser} />;
               }}
             />
             <Route exact path="/budget" component={Budget} />
