@@ -77,21 +77,11 @@ const Trip = (props) => {
                 />
               ))
             ) : (
-<<<<<<< HEAD
                 <p>No trips</p>
               )}
-            <Link
-              to={"/budget"}
-              className="waves-effect btn collection-item white-text"
-              style={{ backgroundColor: "#31708E" }}
-            >
-=======
-              <p>No trips</p>
-            )}
 
             <Link to={"/budget"} className="waves-effect white-text create_btn">
 
->>>>>>> dev
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
