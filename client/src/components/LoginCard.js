@@ -1,10 +1,14 @@
 // dependencies
 import React from "react";
+import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 
 const LoginCard = ({ handleUser, getUserInfo }) => {
   return (
-    <div className="z-depth-1 row login-page-element login-card">
+    <motion.div
+    initial={{ x: "-100vw" }}
+    animate={{ x: 0 }}
+    transition={{ delay: 0.25, duration: 0.5 }} className="z-depth-1 row login-page-element login-card">
       <i className="large material-icons account-login">flight</i>
       <h5 className="login-header">Please, login into your account</h5>
       <form className="col s12" method="post" onSubmit={handleUser}>
@@ -64,7 +68,7 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
           </div>
         </center>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

@@ -215,3 +215,8 @@ nav a.active {
   background-color: #4b91b3;
 }
 
+.huge i{
+  height: 100px;
+  width: 120px;
+}
+
