@@ -1,7 +1,7 @@
 // dependencies
 import React from "react";
 
-const LoginCard = ({ getUserInfo, handleUser }) => {
+const LoginCard = ({ handleUser, getUserInfo }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
       <form className="col s12" method="post" onSubmit={handleUser}>

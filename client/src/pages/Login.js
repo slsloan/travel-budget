@@ -3,7 +3,10 @@ import LoginCard from "../components/LoginCard";
 import CreateAccountBtn from "../components/CreateAccountBtn";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
+  // destructure props
+  const { history, setUser } = props;
+
   const [newLogin, setNewLogin] = useState({
     email: "",
     password: "",
@@ -11,8 +14,14 @@ const Login = () => {
 
   const handleUser = (event) => {
     event.preventDefault();
-    axios.post("/api/login", newLogin).then(() => {
-      setNewLogin({ email: "", password: "" });
+    axios.post("/api/login", newLogin).then((response) => {
+      if (response.status === 200) {
+        console.log(response.data.user);
+        console.log("Successfully logged in!");
+
+        setUser(response.data.user);
+        history.push("/trip", { email: response.data.user });
+      }
     });
   };
 

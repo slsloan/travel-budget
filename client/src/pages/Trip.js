@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link, useParams } from "react-router-dom";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
 import projectData from "../data/projects.json";
 import axios from "axios";
 
-const Trip = () => {
+const Trip = (props) => {
+  // destructure props
+  const { user } = props;
+
+  console.log(user);
+
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
     selectedTrip: null,
@@ -17,11 +22,12 @@ const Trip = () => {
 
   const { selectedTrip, trips } = tripInfo;
 
-  // useEffect(() => {
-  //   axios.get('/trips-route')
-  //     .then(res => setTrips(res.data))
-  //     .catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios
+      .get(`/api/user/find-user/${user}`)
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+  }, []);
 
   // setTrips(projectData);
 

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import AccountCard from "../components/AccountCard";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Account = () => {
+  const history = useHistory();
+
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -17,7 +20,7 @@ const Account = () => {
     axios.post("/api/account/signup", newUser).then((response) => {
       if (response.status === 200) {
         console.log("An account has been created!");
-        window.location.href = "/";
+        history.push("/");
       }
     });
   };
