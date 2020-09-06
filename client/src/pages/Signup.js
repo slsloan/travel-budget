@@ -37,7 +37,10 @@ const Account = () => {
       <div className="section"></div>
       <main>
         <center className="login-div">
-          <AccountCard></AccountCard>
+          <AccountCard>
+            getUserInfo={getUserInfo}
+            handleUser={handleNewUser}
+          </AccountCard>
         </center>
       </main>
     </div>
