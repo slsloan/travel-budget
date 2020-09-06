@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
@@ -37,10 +38,9 @@ const Trip = (props) => {
   return (
     <div className="container">
       <br />
-      <br />
 
       <div className="row">
-        <div class="col s6 m4">
+        <div className="col s4">
           <ul
             className="sidenav sidenav-fixed collection with-header"
             style={{
@@ -54,7 +54,7 @@ const Trip = (props) => {
           >
             <li
               className="collection-header white-text"
-              style={{ backgroundColor: "#31708E" }}
+              style={{ backgroundColor: "#31708E", position: "sticky", top: 0 }}
             >
               <h4>
                 Trips
@@ -79,11 +79,9 @@ const Trip = (props) => {
             ) : (
               <p>No trips</p>
             )}
-            <Link
-              to={"/budget"}
-              className="waves-effect btn collection-item white-text create-trip-button"
-              style={{ backgroundColor: "#31708E" }}
-            >
+
+            <Link to={"/budget"} className="waves-effect white-text create_btn">
+
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
@@ -91,7 +89,7 @@ const Trip = (props) => {
             </Link>
           </ul>
         </div>
-        <div class="col s6 m6">
+        <div className="col s8 offset-s3">
           {selectedTrip ? (
             <TripDetails
               location={selectedTrip.name}
