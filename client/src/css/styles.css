@@ -186,11 +186,13 @@ nav a.active {
 
 .create_btn {
   background-color: #31708e;
+  color: #fff;
   width: 100%;
-  padding: 20px 30px 15px 30px;
+  padding: 15px 30px 15px 30px;
   transition: ease-in-out 0.5s;
   position: sticky;
   font-size: 1.1rem;
+  border-radius: 3px;
 }
 
 .create_btn:hover {

@@ -13,12 +13,18 @@ const TripDetails = ({ location, details, image, link }) => {
     ],
   };
   return (
-    <div class="card-panel">
-      <img src={image} alt={details} width="100" hight="75" />
-      <p>{data.datasets[0].label}</p>
+    <div class="card-panel" style={{ textAlign: "center" }}>
+      <img src={image} alt={details} width="500" height="250" />
+      <h4>My {data.datasets[0].label}</h4>
       <Doughnut data={data} />
       <p>{details}</p>
-      <button href={link}>Learn More</button>
+      <a
+        className="waves-effect waves-light create_btn"
+        style={{ width: "auto" }}
+        href={link}
+      >
+        Learn More
+      </a>
     </div>
   );
 };
