@@ -15,6 +15,7 @@ const Trip = (props) => {
     selectedTrip: null,
   });
 
+  console.log(tripInfo.trips);
   // const [trips, setTrips] = useState([]);
   // const [selectedTrip, setSelectedTrips] = useState({});
 
@@ -68,8 +69,8 @@ const Trip = (props) => {
             {trips ? (
               trips.map((trip) => (
                 <TripItem
-                  key={trip.id}
-                  location={trip.name}
+                  key={trip.userId}
+                  location={trip.tripName}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
                     setTripInfo({ ...tripInfo, selectedTrip: trip })
@@ -81,7 +82,6 @@ const Trip = (props) => {
             )}
 
             <Link to={"/budget"} className="waves-effect white-text create_btn">
-
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
