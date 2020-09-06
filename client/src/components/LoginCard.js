@@ -56,9 +56,9 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
               <b>Create an account?</b>
               <Link to="/account">
                 {" "}
-                <a>
+                <span>
                   Sign up
-                </a>
+                </span>
               </Link>
             </label>
           </div>
