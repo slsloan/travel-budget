@@ -134,6 +134,7 @@ nav a.active {
   box-shadow: none;
 }
 
+.trip-header,
 .login-header,
 .account-login,
 .account-register {
@@ -145,6 +146,7 @@ nav a.active {
   margin-bottom: 75px;
 }
 
+.trip-card,
 .login-card {
   background-color: #f7f9fb;
   min-width: 500px;
@@ -155,6 +157,7 @@ nav a.active {
   color: #31708e;
 }
 
+.trip-button,
 .login-button {
   background-color: #8fc1e3;
 }
