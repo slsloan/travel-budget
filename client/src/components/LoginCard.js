@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LoginCard = ({ getUserInfo, handleUser }) => {
+const LoginCard = ({ handleUser, getUserInfo }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
       <i className="large material-icons account-login">flight</i>

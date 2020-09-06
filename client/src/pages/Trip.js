@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link, useParams } from "react-router-dom";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
 import projectData from "../data/projects.json";
 import axios from "axios";
 
-const Trip = () => {
+const Trip = (props) => {
+  const { slug } = useParams();
+  let { history, setUser } = props;
+
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
     selectedTrip: null,
@@ -16,20 +20,27 @@ const Trip = () => {
 
   const { selectedTrip, trips } = tripInfo;
 
-  // useEffect(() => {
-  //   axios.get('/trips-route')
-  //     .then(res => setTrips(res.data))
-  //     .catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios
+      .get(`/api/user/find-user/${slug}`)
+      .then((res) => setTripInfo({ trips: res.data.trips }))
+      .catch((err) => console.log(err))
+      .then(
+        axios
+          .get(`/api/user/find-user/${slug}`)
+          .then((res) => setUser(res.data.firstName))
+          .catch((err) => console.log(err))
+      );
+  }, []);
 
   // setTrips(projectData);
 
   return (
     <div className="container">
       <br />
-      <br />
+
       <div className="row">
-        <div class="col s6 m4">
+        <div className="col s4">
           <ul
             className="sidenav sidenav-fixed collection with-header"
             style={{
@@ -43,7 +54,7 @@ const Trip = () => {
           >
             <li
               className="collection-header white-text"
-              style={{ backgroundColor: "#31708E" }}
+              style={{ backgroundColor: "#31708E", position: "sticky", top: 0 }}
             >
               <h4>
                 Trips
@@ -66,6 +77,7 @@ const Trip = () => {
                 />
               ))
             ) : (
+<<<<<<< HEAD
                 <p>No trips</p>
               )}
             <Link
@@ -73,6 +85,13 @@ const Trip = () => {
               className="waves-effect btn collection-item white-text"
               style={{ backgroundColor: "#31708E" }}
             >
+=======
+              <p>No trips</p>
+            )}
+
+            <Link to={"/budget"} className="waves-effect white-text create_btn">
+
+>>>>>>> dev
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
@@ -80,7 +99,7 @@ const Trip = () => {
             </Link>
           </ul>
         </div>
-        <div class="col s6 m6">
+        <div className="col s8 offset-s3">
           {selectedTrip ? (
             <TripDetails
               location={selectedTrip.name}

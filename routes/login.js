@@ -27,23 +27,25 @@ router.use('/login', (req, res) => {
 
   email = email.toLowerCase()
   email = email.trim();
-
-  User.find({
-    email: email,
-    password: password
-  }, (err, activeUser) => {
-    if (err) {
-      return res.send({
-        success: false,
-        message: 'Error: Server error C'
-      });
-    } else if (activeUser.length > 0) {
-      return res.send({
-        success: true,
-        message: 'Logged in'
-      });
-    }
-  });
+  User.find(
+    {
+      email: email,
+      password: password,
+    },
+    (err, activeUser) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: "Error: Server error C",
+        });
+      } else if (activeUser.length > 0) {
+        return res.send({
+          success: true,
+          message: "Logged in",
+          user: email,
+        });
+      }
+    });
 });
 
 module.exports = router;
