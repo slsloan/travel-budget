@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import LoginCard from "../components/LoginCard";
-import CreateAccountBtn from "../components/CreateAccountBtn";
 import axios from "axios";
 
 const Login = (props) => {
@@ -36,11 +35,7 @@ const Login = (props) => {
       <div className="section"></div>
       <main>
         <center className="login-div">
-          <div className="section"></div>
-          <h5 className="login-header">Please, login into your account</h5>
-          <div className="section"></div>
-          <LoginCard getUserInfo={getUserInfo} handleUser={handleUser} />
-          <CreateAccountBtn />
+          <LoginCard></LoginCard>
         </center>
       </main>
     </div>

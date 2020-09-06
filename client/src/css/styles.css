@@ -34,10 +34,6 @@ footer a svg {
   width: 2.5rem !important;
 }
 
-footer .footer-copyright .row {
-  margin: 0;
-}
-
 nav a.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -151,7 +147,10 @@ nav a.active {
   box-shadow: none;
 }
 
-.login-header {
+.trip-header,
+.login-header,
+.account-login,
+.account-register {
   color: #31708e;
 }
 
@@ -160,6 +159,7 @@ nav a.active {
   margin-bottom: 75px;
 }
 
+.trip-card,
 .login-card {
   background-color: #f7f9fb;
   min-width: 500px;
@@ -170,6 +170,7 @@ nav a.active {
   color: #31708e;
 }
 
+.trip-button,
 .login-button {
   background-color: #8fc1e3;
 }

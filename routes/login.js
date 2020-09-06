@@ -1,24 +1,31 @@
 // dependencies
-const User = require("../models/User");
-const express = require("express");
+const User = require('../models/User');
+const express = require('express');
+
 // define new router
 var router = express.Router();
+
 // configure routes for my router
-router.use("/login", (req, res) => {
-  let { email, password } = req.body;
+router.use('/login', (req, res) => {
+  let {
+    email,
+    password
+  } = req.body;
+
   if (!email) {
     return res.send({
       success: false,
-      message: "Error: Email cannot be blank.",
+      message: 'Error: Email cannot be blank.'
     });
   }
   if (!password) {
     return res.send({
       success: false,
-      message: "Error: Password cannot be blank.",
+      message: 'Error: Password cannot be blank.'
     });
   }
-  email = email.toLowerCase();
+
+  email = email.toLowerCase()
   email = email.trim();
   User.find(
     {
@@ -38,8 +45,7 @@ router.use("/login", (req, res) => {
           user: email,
         });
       }
-    }
-  );
+    });
 });
 
 module.exports = router;

@@ -4,6 +4,8 @@ import React from "react";
 const AccountCard = ({ handleNewUser, getUserInfo }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
+      <i className="large material-icons account-register">account_circle</i>
+      <h5 className="login-header">Create Account</h5>
       <form className="col s12" method="post" onSubmit={handleNewUser}>
         <div className="row">
           <div className="col s12"></div>

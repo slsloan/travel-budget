@@ -1,9 +1,12 @@
 // dependencies
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginCard = ({ handleUser, getUserInfo }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
+      <i className="large material-icons account-login">flight</i>
+      <h5 className="login-header">Please, login into your account</h5>
       <form className="col s12" method="post" onSubmit={handleUser}>
         <div className="row">
           <div className="col s12"></div>
@@ -35,11 +38,6 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
             />
             <label type="password"></label>
           </div>
-          <label>
-            <a className="login-password" href="#!">
-              <b>Forgot Password?</b>
-            </a>
-          </label>
         </div>
 
         <br />
@@ -52,6 +50,17 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
             >
               Login
             </button>
+          </div>
+          <div className="row">
+            <label>
+              <b>Create an account?</b>
+              <Link to="/account">
+                {" "}
+                <span>
+                  Sign up
+                </span>
+              </Link>
+            </label>
           </div>
         </center>
       </form>

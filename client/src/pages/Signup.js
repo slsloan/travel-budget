@@ -37,13 +37,7 @@ const Account = () => {
       <div className="section"></div>
       <main>
         <center className="login-div">
-          <div className="section"></div>
-          <h5 className="login-header">Create Account</h5>
-          <div className="section"></div>
-          <AccountCard
-            handleNewUser={handleNewUser}
-            getUserInfo={getUserInfo}
-          />
+          <AccountCard></AccountCard>
         </center>
       </main>
     </div>
