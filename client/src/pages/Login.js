@@ -35,7 +35,10 @@ const Login = (props) => {
       <div className="section"></div>
       <main>
         <center className="login-div">
-          <LoginCard></LoginCard>
+          <LoginCard
+            getUserInfo={getUserInfo}
+            handleUser={handleUser}
+          ></LoginCard>
         </center>
       </main>
     </div>

@@ -8,14 +8,14 @@ import axios from "axios";
 
 const Trip = (props) => {
   const { slug } = useParams();
-  let { history, setUser } = props;
+  let { setUser } = props;
 
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
     selectedTrip: null,
   });
 
-  console.log(tripInfo.trips);
+  // console.log(tripInfo.trips);
   // const [trips, setTrips] = useState([]);
   // const [selectedTrip, setSelectedTrips] = useState({});
 
@@ -78,8 +78,8 @@ const Trip = (props) => {
                 />
               ))
             ) : (
-                <p>No trips</p>
-              )}
+              <p>No trips</p>
+            )}
 
             <Link to={"/budget"} className="waves-effect white-text create_btn">
               Create A Trip
@@ -92,16 +92,17 @@ const Trip = (props) => {
         <div className="col s8 offset-s3">
           {selectedTrip ? (
             <TripDetails
-              location={selectedTrip.name}
+              projectData={selectedTrip}
+              location={selectedTrip.tripName}
               details={selectedTrip.description}
               image={selectedTrip.screenshot}
               link={selectedTrip.github}
             />
           ) : (
-              <div className="card-panel large center">
-                <h3>Click on a trip to see details</h3>
-              </div>
-            )}
+            <div className="card-panel large center">
+              <h3>Click on a trip to see details</h3>
+            </div>
+          )}
         </div>
       </div>
     </div>

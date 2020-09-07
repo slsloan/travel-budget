@@ -6,7 +6,7 @@ const Budget = () => {
       <br />
       <div className="z-depth-1 row trip-page-element trip-card">
         <center>
-          <i class="medium material-icons trip-header">public</i>
+          <i className="medium material-icons trip-header">public</i>
           <h5 className=" trip-header">Create a Trip</h5>
         </center>
 
@@ -40,7 +40,9 @@ const Budget = () => {
 
           <center>
             <div className="row">
-              <a className="waves-effect waves-light btn-large trip-button"><i className="material-icons right">add</i>Add Trip</a>
+              <a className="waves-effect waves-light btn-large trip-button">
+                <i className="material-icons right">add</i>Add Trip
+              </a>
             </div>
           </center>
         </form>
