@@ -37,10 +37,12 @@ const Account = () => {
       <div className="section"></div>
       <main>
         <center className="login-div">
+
           <AccountCard
             handleNewUser={handleNewUser}
             getUserInfo={getUserInfo}
           ></AccountCard>
+
         </center>
       </main>
     </div>
