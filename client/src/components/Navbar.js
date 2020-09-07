@@ -36,7 +36,7 @@ const Navbar = (props) => {
         <div className="row">
           <div className="col s12">
             <Link to="/" className="brand-logo">
-            <motion.i class="huge material-icons" variants={iconVariants} intitial="hidden" animate="visible">filter_hdr</motion.i>
+            <motion.i class="huge material-icons" intitial="hidden" animate="visible">filter_hdr</motion.i>
               {user ? `${user}'s Travel Budget` : "Travel Budget"}
             </Link>
 
