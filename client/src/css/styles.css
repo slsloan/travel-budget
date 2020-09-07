@@ -198,8 +198,6 @@ nav a.active {
   background-size: cover;
 }
 
-
-
 .create_btn {
   background-color: #31708e;
   color: #fff;
@@ -215,3 +213,7 @@ nav a.active {
   background-color: #4b91b3;
 }
 
+.trip-details {
+  color: #4b91b3;
+  margin: 30px;
+}
