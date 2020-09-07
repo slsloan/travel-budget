@@ -35,10 +35,12 @@ const Login = (props) => {
       <div className="section"></div>
       <main>
         <center className="login-div">
-          <LoginCard>
+
+          <LoginCard
             getUserInfo={getUserInfo}
             handleUser={handleUser}
-          </LoginCard>
+          ></LoginCard>
+
         </center>
       </main>
     </div>

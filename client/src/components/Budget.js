@@ -40,7 +40,9 @@ const Budget = () => {
 
           <center>
             <div className="row">
-              <a className="waves-effect waves-light btn-large trip-button"><i className="material-icons right">add</i>Add Trip</a>
+              <a className="waves-effect waves-light btn-large trip-button">
+                <i className="material-icons right">add</i>Add Trip
+              </a>
             </div>
           </center>
         </form>

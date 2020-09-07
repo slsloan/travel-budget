@@ -1,12 +1,10 @@
 [
   {
-    "id": "0",
-    "name": "New Zealand",
-    "slug": "seagull-caterpillar-pillar",
-    "description": "Lorem ipsum dolar sit amet",
-    "screenshot": "https://picsum.photos/800/600",
-    "github": "https://github.com/",
-    "demo": "https://www.google.com/"
+    "userId": "5f4f06124ffc93403880596a",
+    "tripName": "New Zealand",
+    "lengthOfTrip": "seagull-caterpillar-pillar",
+    "budget": "Lorem ipsum dolar sit amet",
+    "country": "https://picsum.photos/800/600"
   },
   {
     "id": "1",

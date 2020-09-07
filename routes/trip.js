@@ -5,7 +5,17 @@ const express = require("express");
 var router = express.Router();
 // configure routes for my router
 router.use("/user/add-trip", (req, res) => {
-  let { userId, tripName, lengthOfTrip, budget, country } = req.body;
+  let {
+    userId,
+    tripName,
+    lengthOfTrip,
+    country,
+    budget,
+    room,
+    food,
+    travel,
+    misc,
+  } = req.body;
   User.findByIdAndUpdate(
     { _id: userId },
     { $push: { trips: req.body } },
