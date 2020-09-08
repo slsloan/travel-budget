@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = (props) => {
   const user = JSON.stringify(props.user).slice(1, -1);
   console.log(user);
+
   return (
     <nav className="nav-style" style={{ zIndex: "1" }}>
       <div className="container">
@@ -21,7 +22,7 @@ const Navbar = (props) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink exact to="/trip">
+                <NavLink exact to="/trip/">
                   Trips
                 </NavLink>
               </li>

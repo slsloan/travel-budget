@@ -19,19 +19,14 @@ const TripDetails = ({ projectData, location, details, image, link }) => {
     ],
   };
   return (
-    <div className="card-panel" style={{ textAlign: "center", width: "900px" }}>
+    <div className="card-panel" style={{ textAlign: "center" }}>
       <div className="row trip-details">
         <div className="col s2"></div>
         <h5 className="col s4">Destination: {country}</h5>
         <h5 className="col s4">Currency: Here</h5>
         <div className="col s2"></div>
       </div>
-      <img
-        src={`../src/img/${country}.jpg`}
-        alt={details}
-        width="500"
-        height="250"
-      />{" "}
+      <img src={`/img/${country}.jpg`} alt={details} width="500" height="250" />{" "}
       <h4>My {data.datasets[0].label}</h4>
       <Doughnut data={data} />
       <p>{details}</p>
