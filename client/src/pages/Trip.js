@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
 import projectData from "../data/projects.json";
@@ -41,8 +42,11 @@ const Trip = (props) => {
 
       <div className="row">
         <div className="col s4">
-          <ul
+          <motion.ul
             className="sidenav sidenav-fixed collection with-header"
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.25, duration: 0.6 }}
             style={{
               zIndex: "0",
               height: "auto",
@@ -86,9 +90,14 @@ const Trip = (props) => {
                 <i className="material-icons">add</i>
               </span>
             </Link>
-          </ul>
+          </motion.ul>
         </div>
-        <div className="col s8 offset-s3">
+        <motion.div
+          initial={{ x: "200vw" }}
+          animate={{ x: 0 }}
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="col s9 offset-s3"
+        >
           {selectedTrip ? (
             <TripDetails
               projectData={selectedTrip}
@@ -102,7 +111,7 @@ const Trip = (props) => {
               <h3>Click on a trip to see details</h3>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

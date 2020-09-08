@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Doughnut } from "react-chartjs-2";
 
-const TripDetails = ({ projectData, location, details, image, link }) => {
-  let { budget, country, lengthOfTrip, room, food, travel, misc } = projectData;
+const TripDetails = ({
+  projectData,
+  location,
+  details,
+  image,
+  link
+}) => {
+  let {
+    budget,
+    country,
+    lengthOfTrip,
+    room,
+    food,
+    travel,
+    misc
+  } = projectData;
 
   // Australia, Brazil, Canada, Egypt, France, Greece, Germany, India, Japan, Mexico, Norway, Russia, South Korea, Switzerland, Taiwan, United Kingdom, Vietnam
 
@@ -19,7 +34,13 @@ const TripDetails = ({ projectData, location, details, image, link }) => {
     ],
   };
   return (
-    <div className="card-panel" style={{ textAlign: "center", width: "900px" }}>
+    <motion.div
+    initial={{ x: "200vw" }}
+    animate={{ x: 0 }}
+    transition={{ duration: 0.6 }}
+      className="card-panel"
+      style={{ textAlign: "center" }}
+    >
       <div className="row trip-details">
         <div className="col s2"></div>
         <h5 className="col s4">Destination: {country}</h5>
@@ -42,7 +63,7 @@ const TripDetails = ({ projectData, location, details, image, link }) => {
       >
         Learn More
       </a>
-    </div>
+    </motion.div>
   );
 };
 
