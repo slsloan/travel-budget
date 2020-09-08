@@ -7,7 +7,7 @@ const AccountCard = ({ handleNewUser, getUserInfo }) => {
     <motion.div
       initial={{ x: "-100vw" }}
       animate={{ x: 0 }}
-      transition={{ delay: 0.25, duration: 0.5 }}
+      transition={{ delay: 0.25, duration: 0.6 }}
       className="z-depth-1 row login-page-element login-card"
     >
       <i className="large material-icons account-register">account_circle</i>
