@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Doughnut } from "react-chartjs-2";
 
 const TripDetails = ({ projectData, location, details, image, link }) => {
@@ -19,7 +20,13 @@ const TripDetails = ({ projectData, location, details, image, link }) => {
     ],
   };
   return (
-    <div className="card-panel" style={{ textAlign: "center" }}>
+    <motion.div
+      initial={{ x: "200vw" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="card-panel"
+      style={{ textAlign: "center" }}
+    >
       <div className="row trip-details">
         <div className="col s2"></div>
         <h5 className="col s4">Destination: {country}</h5>
@@ -37,7 +44,7 @@ const TripDetails = ({ projectData, location, details, image, link }) => {
       >
         Learn More
       </a>
-    </div>
+    </motion.div>
   );
 };
 
