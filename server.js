@@ -2,23 +2,18 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var path = require("path");
-
 // configure dotenv
 require("dotenv").config();
-
 // new express app
 var app = express();
-
 // configure middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// configure api routes
-<<<<<<< HEAD
-app.use("/api", require("./routes"));
-=======
-// app.use('/api', require('./routes'))
->>>>>>> e71be4b93f8539341397c032dd67d1caecc08d6c
+// define and configure api routes
+app.use("/api", require("./routes/signup"));
+app.use("/api", require("./routes/login"));
+app.use("/api", require("./routes/trip"));
 
 // serve static assets in production
 if (process.env.NODE_ENV === "production") {
@@ -27,13 +22,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"))
   );
 }
-
 // connect to database
 mongoose.connect(process.env.MONGODB_URI);
-
 // define PORT
 var PORT = process.env.PORT || 5000;
-
 // start the server
 app.listen(PORT, function () {
   console.log("server running on port http://localhost:" + PORT);

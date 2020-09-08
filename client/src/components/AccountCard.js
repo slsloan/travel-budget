@@ -1,31 +1,35 @@
 // dependencies
 import React from "react";
 
-const AccountCard = (props) => {
+const AccountCard = ({ handleNewUser, getUserInfo }) => {
   return (
     <div className="z-depth-1 row login-page-element login-card">
-      <form className="col s12" method="post">
+      <i className="large material-icons account-register">account_circle</i>
+      <h5 className="login-header">Create Account</h5>
+      <form className="col s12" method="post" onSubmit={handleNewUser}>
         <div className="row">
           <div className="col s12"></div>
         </div>
-        <div class="row">
-          <div class="input-field col s6">
+        <div className="row">
+          <div className="input-field col s6">
             <input
               className="validate"
               type="text"
-              name="first_name"
+              name="firstName"
               id="first_name"
               placeholder="First Name"
+              onChange={getUserInfo}
             ></input>
             <label type="first_name"></label>
           </div>
-          <div class="input-field col s6">
+          <div className="input-field col s6">
             <input
               className="validate"
               type="text"
-              name="last_name"
+              name="lastName"
               id="last_name"
               placeholder="Last Name"
+              onChange={getUserInfo}
             ></input>
             <label type="last_name"></label>
           </div>
@@ -38,6 +42,7 @@ const AccountCard = (props) => {
               name="email"
               id="email"
               placeholder="Email"
+              onChange={getUserInfo}
             />
             <label type="email"></label>
           </div>
@@ -51,6 +56,7 @@ const AccountCard = (props) => {
               name="password"
               id="password"
               placeholder="Password"
+              onChange={getUserInfo}
             />
             <label type="password"></label>
           </div>

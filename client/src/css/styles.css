@@ -34,10 +34,6 @@ footer a svg {
   width: 2.5rem !important;
 }
 
-footer .footer-copyright .row {
-  margin: 0;
-}
-
 nav a.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -95,6 +91,19 @@ nav a.active {
   height: auto;
   width: 100%;
 }
+#welcome-user-row {
+  margin: auto;
+  margin-top: 20px;
+}
+#welcome-user {
+  margin: auto;
+  text-align: center;
+  background-color: #31708e;
+  width: 63%;
+  padding: 7px;
+  border-radius: 3px;
+  color: white;
+}
 
 /*****************
 ** Class Styles **
@@ -105,18 +114,21 @@ nav a.active {
   font-weight: 700;
 }
 
-.card img,
-.card p,
-.card span {
-  color: #000000;
-}
-
 .success {
   color: #26a69a;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 36px;
+}
+
+.collection {
+  border: 0px;
+  border-radius: 5px;
+}
+
+.collection-item {
+  color: #5085a5;
 }
 
 /* custom styles */
@@ -135,7 +147,10 @@ nav a.active {
   box-shadow: none;
 }
 
-.login-header {
+.trip-header,
+.login-header,
+.account-login,
+.account-register {
   color: #31708e;
 }
 
@@ -144,6 +159,7 @@ nav a.active {
   margin-bottom: 75px;
 }
 
+.trip-card,
 .login-card {
   background-color: #f7f9fb;
   min-width: 500px;
@@ -154,6 +170,7 @@ nav a.active {
   color: #31708e;
 }
 
+.trip-button,
 .login-button {
   background-color: #8fc1e3;
 }
@@ -179,4 +196,24 @@ nav a.active {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.create_btn {
+  background-color: #31708e;
+  color: #fff;
+  width: 100%;
+  padding: 15px 30px 15px 30px;
+  transition: ease-in-out 0.5s;
+  position: sticky;
+  font-size: 1.1rem;
+  border-radius: 3px;
+}
+
+.create_btn:hover {
+  background-color: #4b91b3;
+}
+
+.trip-details {
+  color: #4b91b3;
+  margin: 30px;
 }
