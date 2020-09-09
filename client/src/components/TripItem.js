@@ -6,7 +6,7 @@ const TripItem = ({ location, isSelected, selectTrip }) => {
     <motion.a
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{delay: 0.65}}
+      transition={{ delay: 0.5, duration: 1 }}
       title="View Chart"
       className="collection-item"
       isSelected={isSelected}
@@ -15,7 +15,7 @@ const TripItem = ({ location, isSelected, selectTrip }) => {
     >
       {location}
       <span style={{ float: "right" }}>
-        <i className="material-icons">show_chart</i>
+        <i className="material-icons">place</i>
       </span>
     </motion.a>
   );
