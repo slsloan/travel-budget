@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
 import projectData from "../data/projects.json";
@@ -8,13 +8,14 @@ import axios from "axios";
 
 const Trip = (props) => {
   const { slug } = useParams();
-  let { history, setUser } = props;
+  let { setUser } = props;
 
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
     selectedTrip: null,
   });
 
+  // console.log(tripInfo.trips);
   // const [trips, setTrips] = useState([]);
   // const [selectedTrip, setSelectedTrips] = useState({});
 
@@ -41,8 +42,11 @@ const Trip = (props) => {
 
       <div className="row">
         <div className="col s4">
-          <ul
+          <motion.ul
             className="sidenav sidenav-fixed collection with-header"
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.25, duration: 0.6 }}
             style={{
               zIndex: "0",
               height: "auto",
@@ -68,8 +72,8 @@ const Trip = (props) => {
             {trips ? (
               trips.map((trip) => (
                 <TripItem
-                  key={trip.id}
-                  location={trip.name}
+                  key={trip.userId}
+                  location={trip.tripName}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
                     setTripInfo({ ...tripInfo, selectedTrip: trip })
@@ -77,32 +81,37 @@ const Trip = (props) => {
                 />
               ))
             ) : (
-                <p>No trips</p>
-              )}
+              <p>No trips</p>
+            )}
 
             <Link to={"/budget"} className="waves-effect white-text create_btn">
-
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
               </span>
             </Link>
-          </ul>
+          </motion.ul>
         </div>
-        <div className="col s8 offset-s3">
+        <motion.div
+          initial={{ x: "200vw" }}
+          animate={{ x: 0 }}
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="col s9 offset-s3"
+        >
           {selectedTrip ? (
             <TripDetails
-              location={selectedTrip.name}
+              projectData={selectedTrip}
+              location={selectedTrip.tripName}
               details={selectedTrip.description}
               image={selectedTrip.screenshot}
               link={selectedTrip.github}
             />
           ) : (
-              <div className="card-panel large center">
-                <h3>Click on a trip to see details</h3>
-              </div>
-            )}
-        </div>
+            <div className="card-panel large center">
+              <h3>Click on a trip to see details</h3>
+            </div>
+          )}
+        </motion.div>
       </div>
     </div>
   );
