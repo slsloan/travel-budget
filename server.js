@@ -15,7 +15,6 @@ app.use("/api", require("./routes/signup"));
 app.use("/api", require("./routes/login"));
 app.use("/api", require("./routes/trip"));
 
-// app.use('/api', require('./routes/login'));
 // serve static assets in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client", "build")));
