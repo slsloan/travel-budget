@@ -1,6 +1,7 @@
 import React from "react";
 
 const Budget = () => {
+
   return (
     <div>
       <br />
@@ -24,20 +25,84 @@ const Budget = () => {
             </div>
           </div>
 
-          <div className="row login-input">
-            <div className="col s2 ">
-              <input
-                className="validate"
-                type="text"
-                name="lengthOfTrip"
-                id="lengthOfTrip"
-                placeholder="ex. 8"
-              />
-              <label type="lengthOfTrip"></label>
+          <div className="row">
+            <div className="input-field col s6" id="country">
+              <select className="browser-default">
+                <option value="" disabled selected>Choose your country</option>
+                <option value="Australia">Australia</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Canada">Canada</option>
+                <option value="China">China</option>
+                <option value="Egypt">Egypt</option>
+                <option value="France">France</option>
+                <option value="Greece">Greece</option>
+                <option value="Germany">Germany</option>
+                <option value="India">India</option>
+                <option value="Japan">Japan</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Norway">Norway</option>
+                <option value="Russia">Russia</option>
+                <option value="SouthKorea">South Korea</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="England">England</option>
+                <option value="Vietnam">Vietnam</option>
+              </select>
             </div>
-            <h6 className="trip-header">days</h6>
+            <div className="input-field col s6" id="lengthOfTrip">
+              <select className="browser-default">
+                <option value="" disabled selected>Number of days</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="5">5 days </option>
+                <option value="7">7 days</option>
+                <option value="14">14 days</option>
+                <option value="30">30 days</option>
+              </select>
+            </div>
           </div>
 
+          <div className="row">
+            <div className="input-field col s6">
+              <i className="material-icons prefix">hotel</i>
+              <input id="icon_prefix" type="text" className="validate" placeholder="Room & Board Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+            <div className="input-field col s6">
+              <i className="material-icons prefix">local_dining</i>
+              <input id="icon_prefix" type="text" className="validate" placeholder="Food Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s6">
+              <i className="material-icons prefix">flight</i>
+              <input id="icon_prefix" type="text" className="validate" placeholder="Flight Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+            <div className="input-field col s6">
+              <i className="material-icons prefix">directions_bus</i>
+              <input id="icon_prefix" type="text" className="validate" placeholder="Transportation Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div className="input-field col s6 center">
+              <i className="material-icons prefix">beach_access</i>
+              <input id="icon_prefix" type="text" className="validate" placeholder="Misc Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+            <div className="input-field col s6 center">
+              <i className="material-icons prefix">attach_money</i>
+              <input disabled value="" id="disabled" className="validate" placeholder="Total Budget" />
+              <label type="icon_prefix"></label>
+            </div>
+          </div>
+
+          <br />
           <center>
             <div className="row">
               <a className="waves-effect waves-light btn-large trip-button"><i className="material-icons right">add</i>Add Trip</a>
