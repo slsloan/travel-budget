@@ -131,22 +131,22 @@ const Navbar = (props) => {
                   </g>
                 </motion.svg>
               </div>
-              <div className="col" style={{marginLeft: "50px"}}>
+              <motion.div className="col" style={{marginLeft: "50px"}} initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
                 {user ? `${user}'s Travel Budget` : "Travel Budget"}
-              </div>
+              </motion.div>
             </Link>
 
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
+              <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
                 <NavLink exact to="/">
                   Login
                 </NavLink>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
                 <NavLink exact to="/trip">
                   Trips
                 </NavLink>
-              </li>
+              </motion.li>
             </ul>
           </div>
         </div>

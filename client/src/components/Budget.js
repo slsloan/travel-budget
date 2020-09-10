@@ -1,10 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Budget = () => {
   return (
     <div>
       <br />
-      <div className="z-depth-1 row trip-page-element trip-card">
+      <motion.div
+        initial={{ x: "-100vw" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.25, duration: 0.6 }}
+        className="z-depth-1 row trip-page-element trip-card"
+      >
         <center>
           <i className="medium material-icons trip-header">public</i>
           <h5 className=" trip-header">Create a Trip</h5>
@@ -46,7 +52,7 @@ const Budget = () => {
             </div>
           </center>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

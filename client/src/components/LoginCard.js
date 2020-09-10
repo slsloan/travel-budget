@@ -1,15 +1,17 @@
 // dependencies
 import React from "react";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const LoginCard = ({ handleUser, getUserInfo }) => {
   return (
     <motion.div
-    initial={{ x: "-100vw" }}
-    animate={{ x: 0 }}
-    transition={{ delay: 0.25, duration: 0.6 }} className="z-depth-1 row login-page-element login-card">
-      <i className="large material-icons account-login">flight</i>
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{ delay: 0.25, duration: 0.6 }}
+      className="z-depth-1 row login-page-element login-card"
+    >
+      <i className="large material-icons account-login">flight_takeoff</i>
       <h5 className="login-header">Please, login into your account</h5>
       <form className="col s12" method="post" onSubmit={handleUser}>
         <div className="row">
@@ -50,7 +52,7 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
             <button
               type="submit"
               name="btn_login"
-              className="col s12 btn btn-large waves-effect login-button"
+              className="col s12 btn btn-large waves-effect create_btn"
             >
               Login
             </button>
@@ -60,9 +62,7 @@ const LoginCard = ({ handleUser, getUserInfo }) => {
               <b>Create an account?</b>
               <Link to="/account">
                 {" "}
-                <span>
-                  Sign up
-                </span>
+                <span>Sign up</span>
               </Link>
             </label>
           </div>
