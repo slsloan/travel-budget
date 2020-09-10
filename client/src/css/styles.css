@@ -219,8 +219,12 @@ nav a.active {
 }
 
 .trip-details {
-  color: #4b91b3;
-  margin: 30px;
+  color: #f7f9fb;
+  margin: 20px;
+  background-color: #31708e;
+  border-radius: 5px;
+  line-height: 3em;
+  vertical-align: top;
 }
 
 /* SVG Logo */

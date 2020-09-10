@@ -10,10 +10,10 @@ router.use("/user/add-trip", (req, res) => {
     tripName,
     lengthOfTrip,
     country,
-    budget,
     room,
     food,
-    travel,
+    transportation,
+    flight,
     misc,
   } = req.body;
   User.findByIdAndUpdate(
