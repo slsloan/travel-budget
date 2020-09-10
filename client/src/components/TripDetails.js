@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Doughnut } from "react-chartjs-2";
 
@@ -6,7 +6,7 @@ const TripDetails = ({ projectData, location, details }) => {
   let {
     country,
     lengthOfTrip,
-    room,
+    roomBoard,
     food,
     transportation,
     flight,
@@ -116,11 +116,11 @@ const TripDetails = ({ projectData, location, details }) => {
     default:
       console.log("Country not available!");
   }
-  const budget = room + food + transportation + flight + misc;
+  const budget = roomBoard + food + transportation + flight + misc;
   const conBudget = budget * convert;
   const dailyExpCon = Math.round(conBudget / lengthOfTrip);
 
-  room = room * convert;
+  roomBoard = roomBoard * convert;
   food = food * convert;
   transportation = transportation * convert;
   flight = flight * convert;
@@ -131,7 +131,7 @@ const TripDetails = ({ projectData, location, details }) => {
     datasets: [
       {
         label: `${location} Budget`,
-        data: [room, food, transportation, flight, misc],
+        data: [roomBoard, food, transportation, flight, misc],
         backgroundColor: ["#134a63", "#31708E", "#5085A5", "#8FC1E3"],
       },
     ],

@@ -19,6 +19,7 @@ import "./css/styles.css";
 function App() {
   // state hooks
   const [user, setUser] = useState({});
+  console.log(user);
 
   return (
     <Router>
