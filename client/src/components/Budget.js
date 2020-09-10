@@ -1,9 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-const Budget = () => {
+import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
+const Budget = (props) => {
+  const history = useHistory();
+  console.log(history);
+  const newId = props.location.userId;
+  console.log(newId);
   const [newBudget, setNewBudget] = useState({
+    userId: "",
     tripName: "",
     country: "",
     lengthOfTrip: "",
@@ -14,22 +19,33 @@ const Budget = () => {
     misc: "",
   });
 
+  useEffect(() => {
+    setNewBudget({ userId: newId });
+  }, []);
+
   const { roomBoard, food, flight, transportation, misc } = newBudget;
 
+  const totalBudget =
+    parseInt(roomBoard) +
+    parseInt(food) +
+    parseInt(flight) +
+    parseInt(transportation) +
+    parseInt(misc);
   const getBudgetInfo = (event) => {
     const { name, value } = event.target;
     setNewBudget({ ...newBudget, [name]: value });
   };
-
   const handleNewBudget = (event) => {
     event.preventDefault();
+    console.log(newBudget + "newBudget");
     axios.post("/api/user/add-trip", newBudget).then((response) => {
+      console.log(response.data.email);
       if (response.status === 200) {
         console.log("A new budget has been added!");
+        history.push(`/trip/${response.data.email}`);
       }
     });
   };
-
   return (
     <div>
       <br />
@@ -43,7 +59,6 @@ const Budget = () => {
           <i className="medium material-icons trip-header">public</i>
           <h5 className="trip-header">Create a Trip</h5>
         </center>
-
         <form className="col s12 login-input" onSubmit={handleNewBudget}>
           <div className="row">
             <div className="col s12">
@@ -58,7 +73,6 @@ const Budget = () => {
               <label type="tripName"></label>
             </div>
           </div>
-
           <div className="row">
             <div className="input-field col s6" id="country">
               <select
@@ -107,16 +121,15 @@ const Budget = () => {
               </select>
             </div>
           </div>
-
           <div className="row">
             <div className="input-field col s6">
               <i className="material-icons prefix">hotel</i>
               <input
                 name="roomBoard"
                 id="icon_prefix"
-                type="text"
+                type="number"
                 className="validate"
-                placeholder="Room & Board Budget"
+                placeholder="Room & Board"
                 onChange={getBudgetInfo}
               />
               <label type="icon_prefix"></label>
@@ -126,24 +139,23 @@ const Budget = () => {
               <input
                 name="food"
                 id="icon_prefix"
-                type="text"
+                type="number"
                 className="validate"
-                placeholder="Food Budget"
+                placeholder="Food"
                 onChange={getBudgetInfo}
               />
               <label type="icon_prefix"></label>
             </div>
           </div>
-
           <div className="row">
             <div className="input-field col s6">
               <i className="material-icons prefix">flight</i>
               <input
                 name="flight"
                 id="icon_prefix"
-                type="text"
+                type="number"
                 className="validate"
-                placeholder="Flight Budget"
+                placeholder="Flight"
                 onChange={getBudgetInfo}
               />
               <label type="icon_prefix"></label>
@@ -153,24 +165,23 @@ const Budget = () => {
               <input
                 name="transportation"
                 id="icon_prefix"
-                type="text"
+                type="number"
                 className="validate"
-                placeholder="Transportation Budget"
+                placeholder="Transportation"
                 onChange={getBudgetInfo}
               />
               <label type="icon_prefix"></label>
             </div>
           </div>
-
           <div className="row">
             <div className="input-field col s6 center">
               <i className="material-icons prefix">beach_access</i>
               <input
                 name="misc"
                 id="icon_prefix"
-                type="text"
+                type="number"
                 className="validate"
-                placeholder="Misc Budget"
+                placeholder="Misc"
                 onChange={getBudgetInfo}
               />
               <label type="icon_prefix"></label>
@@ -180,27 +191,22 @@ const Budget = () => {
               <input
                 name="totalBudget"
                 disabled
-                value={
-                  parseInt(roomBoard) +
-                  parseInt(food) +
-                  parseInt(flight) +
-                  parseInt(transportation) +
-                  parseInt(misc)
-                }
+                value={totalBudget || 0}
                 id="disabled"
                 className="validate"
-                placeholder="Total Budget"
               />
               <label type="icon_prefix"></label>
             </div>
           </div>
-
           <br />
           <center>
             <div className="row">
-              <a className="waves-effect waves-light btn-large trip-button">
+              <button
+                type="submit"
+                className="waves-effect waves-light btn-large trip-button"
+              >
                 <i className="material-icons right">add</i>Add Trip
-              </a>
+              </button>
             </div>
           </center>
         </form>
@@ -208,5 +214,4 @@ const Budget = () => {
     </div>
   );
 };
-
 export default Budget;

@@ -29,7 +29,6 @@ const pathVariants = {
 
 const Navbar = (props) => {
   let user = JSON.stringify(props.user).slice(1, -1);
-  console.log(user);
 
   return (
     <nav className="nav-style" style={{ zIndex: "1" }}>
