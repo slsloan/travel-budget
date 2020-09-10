@@ -227,6 +227,13 @@ nav a.active {
   vertical-align: top;
 }
 
+.card-detail {
+  border: 0px solid;
+  border-radius: 5px;
+  background-color: #73a5c2;
+  color: white;
+}
+
 /* SVG Logo */
 
 .svg-logo {

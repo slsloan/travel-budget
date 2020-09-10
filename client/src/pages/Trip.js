@@ -51,7 +51,7 @@ const Trip = (props) => {
             className="sidenav sidenav-fixed collection with-header"
             initial={{ x: "-100vw" }}
             animate={{ x: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
+            transition={{ delay: 0.25, duration: 1 }}
             style={{
               zIndex: "0",
               height: "auto",
@@ -88,36 +88,33 @@ const Trip = (props) => {
             ) : (
               <p>No trips</p>
             )}
-
-            <Link
-              to={{ pathname: "/budget", userId: userId }}
-              className="waves-effect white-text create_btn"
-            >
-              {" "}
-              Create A Trip
-              <span style={{ float: "right" }}>
-                <i className="material-icons">add</i>
-              </span>
-            </Link>
           </motion.ul>
         </div>
         <motion.div
           initial={{ x: "200vw" }}
           animate={{ x: 0 }}
-          transition={{ delay: 0.25, duration: 0.6 }}
+          transition={{ delay: 0.25, duration: 1 }}
           className="col s9 offset-s3"
         >
           {selectedTrip ? (
             <TripDetails
               projectData={selectedTrip}
               location={selectedTrip.tripName}
-              details={selectedTrip.description}
-              image={selectedTrip.screenshot}
-              link={selectedTrip.github}
             />
           ) : (
-            <div className="card-panel large center">
+            <div className="card-panel large center card-detail">
               <h3>Click on a trip to see details</h3>
+              <Link
+                to={{ pathname: "/budget", userId: userId }}
+                className="waves-effect white-text create_btn collection-header"
+                style={{ width: "auto" }}
+              >
+                {" "}
+                Create A Trip
+                <span style={{ float: "right" }}>
+                  <i className="material-icons">add</i>
+                </span>
+              </Link>
             </div>
           )}
         </motion.div>
