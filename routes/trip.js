@@ -10,12 +10,13 @@ router.use("/user/add-trip", (req, res) => {
     tripName,
     lengthOfTrip,
     country,
-    room,
+    roomBoard,
     food,
     transportation,
     flight,
     misc,
   } = req.body;
+
   User.findByIdAndUpdate(
     { _id: userId },
     { $push: { trips: req.body } },

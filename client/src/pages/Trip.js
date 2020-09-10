@@ -9,15 +9,14 @@ import axios from "axios";
 const Trip = (props) => {
   const { slug } = useParams();
   let { setUser } = props;
+  console.log(props);
 
   const [tripInfo, setTripInfo] = useState({
     trips: projectData,
     selectedTrip: null,
   });
 
-  // console.log(tripInfo.trips);
-  // const [trips, setTrips] = useState([]);
-  // const [selectedTrip, setSelectedTrips] = useState({});
+  const [userId, setUserId] = useState({});
 
   const { selectedTrip, trips } = tripInfo;
 
@@ -31,8 +30,14 @@ const Trip = (props) => {
           .get(`/api/user/find-user/${slug}`)
           .then((res) => setUser(res.data.firstName))
           .catch((err) => console.log(err))
+      )
+      .then(
+        axios
+          .get(`/api/user/find-user/${slug}`)
+          .then((res) => setUserId(res.data._id))
+          .catch((err) => console.log(err))
       );
-  }, []);
+  }, [setUser, slug]);
 
   // setTrips(projectData);
 
@@ -72,8 +77,8 @@ const Trip = (props) => {
             {trips ? (
               trips.map((trip) => (
                 <TripItem
-                  key={trip.userId}
-                  location={trip.tripName}
+                  key={trip.tripName}
+                  location={trip.country}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
                     setTripInfo({ ...tripInfo, selectedTrip: trip })
@@ -84,7 +89,11 @@ const Trip = (props) => {
               <p>No trips</p>
             )}
 
-            <Link to={"/budget"} className="waves-effect white-text create_btn">
+            <Link
+              to={{ pathname: "/budget", userId: userId }}
+              className="waves-effect white-text create_btn"
+            >
+              {" "}
               Create A Trip
               <span style={{ float: "right" }}>
                 <i className="material-icons">add</i>
