@@ -1,9 +1,15 @@
 // dependencies
 import React from "react";
+import { motion } from "framer-motion";
 
 const AccountCard = ({ handleNewUser, getUserInfo }) => {
   return (
-    <div className="z-depth-1 row login-page-element login-card">
+    <motion.div
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{ delay: 0.25, duration: 0.6 }}
+      className="z-depth-1 row login-page-element login-card"
+    >
       <i className="large material-icons account-register">account_circle</i>
       <h5 className="login-header">Create Account</h5>
       <form className="col s12" method="post" onSubmit={handleNewUser}>
@@ -75,7 +81,7 @@ const AccountCard = ({ handleNewUser, getUserInfo }) => {
           </div>
         </center>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

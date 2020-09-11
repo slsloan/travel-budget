@@ -8,11 +8,11 @@ const TripItem = ({ location, isSelected, selectTrip }) => {
       className="collection-item"
       isSelected={isSelected}
       onClick={selectTrip}
-      style={{color: "#5085a5"}}
+      style={{ color: "#5085a5" }}
     >
       {location}
       <span style={{ float: "right" }}>
-        <i className="material-icons">show_chart</i>
+        <i className="material-icons">place</i>
       </span>
     </a>
   );

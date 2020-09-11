@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
-import projectData from "../data/projects.json";
 import axios from "axios";
 
 const Trip = (props) => {
   const { slug } = useParams();
   let { setUser } = props;
+  console.log(props);
 
   const [tripInfo, setTripInfo] = useState({
-    trips: projectData,
+    trips: [],
     selectedTrip: null,
   });
 
-  // console.log(tripInfo.trips);
-  // const [trips, setTrips] = useState([]);
-  // const [selectedTrip, setSelectedTrips] = useState({});
+  const [userId, setUserId] = useState({});
 
   const { selectedTrip, trips } = tripInfo;
 
@@ -31,10 +29,14 @@ const Trip = (props) => {
           .get(`/api/user/find-user/${slug}`)
           .then((res) => setUser(res.data.firstName))
           .catch((err) => console.log(err))
+      )
+      .then(
+        axios
+          .get(`/api/user/find-user/${slug}`)
+          .then((res) => setUserId(res.data._id))
+          .catch((err) => console.log(err))
       );
-  }, []);
-
-  // setTrips(projectData);
+  }, [setUser, slug]);
 
   return (
     <div className="container">
@@ -42,8 +44,11 @@ const Trip = (props) => {
 
       <div className="row">
         <div className="col s4">
-          <ul
+          <motion.ul
             className="sidenav sidenav-fixed collection with-header"
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
             style={{
               zIndex: "0",
               height: "auto",
@@ -69,8 +74,8 @@ const Trip = (props) => {
             {trips ? (
               trips.map((trip) => (
                 <TripItem
-                  key={trip.userId}
-                  location={trip.tripName}
+                  key={trip.createdDate}
+                  location={trip.country}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
                     setTripInfo({ ...tripInfo, selectedTrip: trip })
@@ -80,30 +85,36 @@ const Trip = (props) => {
             ) : (
               <p>No trips</p>
             )}
-
-            <Link to={"/budget"} className="waves-effect white-text create_btn">
-              Create A Trip
-              <span style={{ float: "right" }}>
-                <i className="material-icons">add</i>
-              </span>
-            </Link>
-          </ul>
+          </motion.ul>
         </div>
-        <div className="col s8 offset-s3">
+        <motion.div
+          initial={{ x: "200vw" }}
+          animate={{ x: 0 }}
+          transition={{ delay: 0.25, duration: 1 }}
+          className="col s9 offset-s3"
+        >
           {selectedTrip ? (
             <TripDetails
-              projectData={selectedTrip}
+              tripData={selectedTrip}
               location={selectedTrip.tripName}
-              details={selectedTrip.description}
-              image={selectedTrip.screenshot}
-              link={selectedTrip.github}
             />
           ) : (
-            <div className="card-panel large center">
+            <div className="card-panel large center card-detail">
               <h3>Click on a trip to see details</h3>
+              <Link
+                to={{ pathname: "/budget", userId: userId }}
+                className="waves-effect white-text create_btn collection-header"
+                style={{ width: "auto" }}
+              >
+                {" "}
+                Create A Trip
+                <span style={{ float: "right" }}>
+                  <i className="material-icons">add</i>
+                </span>
+              </Link>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

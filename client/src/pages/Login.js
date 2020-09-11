@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Login = (props) => {
   // destructure props
-  const { history, setUser } = props;
+  const { history } = props;
 
   const [newLogin, setNewLogin] = useState({
     email: "",

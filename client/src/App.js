@@ -1,6 +1,7 @@
 // dependencies
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { motion, AnimatePresence } from "framer-motion";
 
 // page components
 import Login from "./pages/Login";
@@ -23,7 +24,7 @@ function App() {
   return (
     <Router>
       <div id="app-content">
-        <Navbar user={user} />
+        <Navbar user={user} setUser={setUser} />
         <div id="router-content" className="background-picture">
           <Switch>
             <Route
