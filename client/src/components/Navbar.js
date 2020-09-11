@@ -1,7 +1,7 @@
 // dependencies
 import React from "react";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 
 // used to animate the logo svg
 const svgVariants = {
@@ -29,6 +29,11 @@ const pathVariants = {
 
 const Navbar = (props) => {
   let user = JSON.stringify(props.user).slice(1, -1);
+
+  const refresh = () => {
+    props.setUser("");
+    return <Redirect to={"http://localhost:3000/"} />;
+  };
 
   return (
     <nav className="nav-style" style={{ zIndex: "1" }}>
@@ -154,18 +159,13 @@ const Navbar = (props) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
               >
-                <NavLink exact to="/">
-                  Login
-                </NavLink>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-              >
-                <NavLink exact to="/trip">
-                  Trips
-                </NavLink>
+                {user ? (
+                  <NavLink exact to="/" onClick={refresh}>
+                    Logout
+                  </NavLink>
+                ) : (
+                  console.log("no button")
+                )}
               </motion.li>
             </ul>
           </div>

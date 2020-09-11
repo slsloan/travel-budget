@@ -25,7 +25,7 @@ SO THAT I can keep things organized
 ```
 
 ![login page of travel friend](./img/login-page.png)
-![signup page of travel friend](./img/signup-image.png)
+![signup page of travel friend](./img/signup-page.png)
 ![create a trip](./img/create-a-trip.png)
 ![trip main page of travel friend](./img/trips-page.png)
 ![selected trip with details](./img/selected-trip.png)
