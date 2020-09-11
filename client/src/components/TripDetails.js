@@ -148,9 +148,9 @@ const TripDetails = ({ tripData, location, details, userId }) => {
     parseInt(flight) +
     parseInt(misc);
   let conBudget = (budget / convert).toFixed(2);
-  console.log(conBudget);
-  // conBudget = Math.round(conBudget);
-  let dailyExpCon = (conBudget / lengthOfTrip).toFixed(2);
+  let budgetNoFlight = ((budget - parseInt(flight)) / convert).toFixed(2)
+
+  let dailyExpCon = (budgetNoFlight / lengthOfTrip).toFixed(2);
 
   roomBoard = (roomBoard / convert).toFixed(2);
   food = (food / convert).toFixed(2);
