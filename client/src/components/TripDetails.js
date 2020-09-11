@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Doughnut } from "react-chartjs-2";
 
-const TripDetails = ({ projectData, location, details }) => {
+const TripDetails = ({ tripData, location, details }) => {
   let {
     country,
     lengthOfTrip,
@@ -11,9 +11,7 @@ const TripDetails = ({ projectData, location, details }) => {
     transportation,
     flight,
     misc,
-  } = projectData;
-
-  // Australia, Brazil, Canada, Egypt, France, Greece, Germany, India, Japan, Mexico, Norway, Russia, South Korea, Switzerland, Taiwan, England, Vietnam, China
+  } = tripData;
 
   country = country.charAt(0).toUpperCase() + country.slice(1);
 
@@ -112,12 +110,42 @@ const TripDetails = ({ projectData, location, details }) => {
       convert = 0.15;
       symbol = "¥ ";
       break;
+    case "Morocco":
+      currency = "Moroccan dirham";
+      convert = 0.11;
+      symbol = "DH ";
+      break;
+    case "Thailand":
+      currency = "Moroccan dirham";
+      convert = 0.11;
+      symbol = "DH ";
+      break;
+    case "Indonesia":
+      currency = "Indonesian rupiah";
+      convert = 0.000067;
+      symbol = "Rp ";
+      break;
+    case "Costa Rica":
+      currency = "Costa Rican colón";
+      convert = 0.0017;
+      symbol = "₡ ";
+      break;
+    case "Spain":
+      currency = "Euro";
+      convert = 1.18;
+      symbol = "€ ";
+      break;
 
     default:
       console.log("Country not available!");
   }
-  const budget = roomBoard + food + transportation + flight + misc;
-  const conBudget = budget * convert;
+  const budget =
+    parseInt(roomBoard) +
+    parseInt(food) +
+    parseInt(transportation) +
+    parseInt(flight) +
+    parseInt(misc);
+  const conBudget = Math.round(budget * convert);
   const dailyExpCon = Math.round(conBudget / lengthOfTrip);
 
   roomBoard = roomBoard * convert;

@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import TripItem from "../components/TripItem";
 import TripDetails from "../components/TripDetails";
-import projectData from "../data/projects.json";
 import axios from "axios";
 
 const Trip = (props) => {
@@ -12,7 +11,7 @@ const Trip = (props) => {
   console.log(props);
 
   const [tripInfo, setTripInfo] = useState({
-    trips: projectData,
+    trips: [],
     selectedTrip: null,
   });
 
@@ -38,8 +37,6 @@ const Trip = (props) => {
           .catch((err) => console.log(err))
       );
   }, [setUser, slug]);
-
-  // setTrips(projectData);
 
   return (
     <div className="container">
@@ -77,7 +74,7 @@ const Trip = (props) => {
             {trips ? (
               trips.map((trip) => (
                 <TripItem
-                  key={trip.tripName}
+                  key={trip.createdDate}
                   location={trip.country}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
@@ -109,11 +106,8 @@ const Trip = (props) => {
         >
           {selectedTrip ? (
             <TripDetails
-              projectData={selectedTrip}
+              tripData={selectedTrip}
               location={selectedTrip.tripName}
-              details={selectedTrip.description}
-              image={selectedTrip.screenshot}
-              link={selectedTrip.github}
             />
           ) : (
             <div className="card-panel large center">
