@@ -24,10 +24,10 @@ I WANT to be able to track the trips I got on
 SO THAT I can keep things organized
 ```
 
-![login page of travel friend](./img/login-page.png)
-![signup page of travel friend](./img/signup-page.png)
+![login page of travel buddy](./img/login-page.png)
+![signup page of travel buddy](./img/signup-page.png)
 ![create a trip](./img/create-a-trip.png)
-![trip main page of travel friend](./img/trips-page.png)
+![trip main page of travel buddy](./img/trips-page.png)
 ![selected trip with details](./img/selected-trip.png)
 
 ### Technology/Framework:
@@ -37,6 +37,7 @@ SO THAT I can keep things organized
 - NPM / express / MongoDB / mongoose / dotenv / nodemon
 - Reactjs / React-Router
 - Materialize (https://materilizecss.com/)
+- FramerMotion / Chartjs 
 - Heroku
 
 ## Acknowledgments
