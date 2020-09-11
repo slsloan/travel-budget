@@ -1,7 +1,7 @@
 // dependencies
 import React from "react";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 
 // used to animate the logo svg
 const svgVariants = {
@@ -30,6 +30,11 @@ const pathVariants = {
 const Navbar = (props) => {
   let user = JSON.stringify(props.user).slice(1, -1);
 
+  const refresh = () => {
+    props.setUser("");
+    return <Redirect to={"http://localhost:3000/"} />;
+  };
+
   return (
     <nav className="nav-style" style={{ zIndex: "1" }}>
       <div className="container">
@@ -47,7 +52,13 @@ const Navbar = (props) => {
                   initial="hidden"
                   animate="visible"
                 >
-                  <motion.g id="Layer_1" data-name="Layer 1" initial={{y: -500}} animate={{y: 0}} transition={{delay: 2.5}}>
+                  <motion.g
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    initial={{ y: -500 }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 2.5 }}
+                  >
                     <motion.path
                       variants={pathVariants}
                       className="cls-1"
@@ -131,21 +142,30 @@ const Navbar = (props) => {
                   </g>
                 </motion.svg>
               </div>
-              <motion.div className="col" style={{marginLeft: "50px"}} initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
+              <motion.div
+                className="col"
+                style={{ marginLeft: "50px" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
                 {user ? `${user}'s Travel Budget` : "Travel Budget"}
               </motion.div>
             </Link>
 
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
-                <NavLink exact to="/">
-                  Login
-                </NavLink>
-              </motion.li>
-              <motion.li initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.5, duration: 1}}>
-                <NavLink exact to="/trip">
-                  Trips
-                </NavLink>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
+                {user ? (
+                  <NavLink exact to="/" onClick={refresh}>
+                    Logout
+                  </NavLink>
+                ) : (
+                  console.log("no button")
+                )}
               </motion.li>
             </ul>
           </div>

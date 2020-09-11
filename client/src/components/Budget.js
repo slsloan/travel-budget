@@ -17,11 +17,14 @@ const Budget = (props) => {
     flight: "",
     transportation: "",
     misc: "",
+    createdDate: "",
   });
 
+  console.log(Date.now());
+
   useEffect(() => {
-    setNewBudget({ userId: newId });
-  }, []);
+    setNewBudget({ userId: newId, createdDate: Date.now() });
+  }, [newId]);
 
   const { roomBoard, food, flight, transportation, misc } = newBudget;
 
@@ -87,19 +90,24 @@ const Budget = (props) => {
                 <option value="Brazil">Brazil</option>
                 <option value="Canada">Canada</option>
                 <option value="China">China</option>
+                <option value="Costa Rica">Costa Rica</option>
                 <option value="Egypt">Egypt</option>
+                <option value="England">England</option>
                 <option value="France">France</option>
                 <option value="Greece">Greece</option>
                 <option value="Germany">Germany</option>
                 <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
                 <option value="Japan">Japan</option>
                 <option value="Mexico">Mexico</option>
+                <option value="Morocco">Morocco</option>
                 <option value="Norway">Norway</option>
                 <option value="Russia">Russia</option>
                 <option value="SouthKorea">South Korea</option>
+                <option value="Spain">Spain</option>
                 <option value="Switzerland">Switzerland</option>
                 <option value="Taiwan">Taiwan</option>
-                <option value="England">England</option>
+                <option value="Thailand">Thailand</option>
                 <option value="Vietnam">Vietnam</option>
               </select>
             </div>
