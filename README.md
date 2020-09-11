@@ -4,7 +4,7 @@ Travel Buddy -- Project 3 for DU Coding Bootcamp
 
 ## Getting Started
 
-Link to heroku deployment:
+Link to heroku deployment: https://rocky-scrubland-02427.herokuapp.com/
 
 ## Team Members
 
