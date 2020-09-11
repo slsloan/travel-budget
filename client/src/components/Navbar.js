@@ -55,8 +55,8 @@ const Navbar = (props) => {
                   <motion.g
                     id="Layer_1"
                     data-name="Layer 1"
-                    initial={{ y: -500 }}
-                    animate={{ y: 0 }}
+                    initial={{ opacity: 0, y: -500 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 2.5 }}
                   >
                     <motion.path
