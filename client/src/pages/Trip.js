@@ -75,7 +75,7 @@ const Trip = (props) => {
               trips.map((trip) => (
                 <TripItem
                   key={trip.createdDate}
-                  location={trip.country}
+                  tripName={trip.tripName}
                   isSelected={trip === selectedTrip}
                   selectTrip={() =>
                     setTripInfo({ ...tripInfo, selectedTrip: trip })
@@ -97,7 +97,9 @@ const Trip = (props) => {
             <TripDetails
               tripData={selectedTrip}
               location={selectedTrip.tripName}
+              userId={userId}
             />
+            
           ) : (
             <div className="card-panel large center card-detail">
               <h3>Click on a trip to see details</h3>

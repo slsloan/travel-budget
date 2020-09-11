@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Doughnut } from "react-chartjs-2";
 
-const TripDetails = ({ tripData, location, details }) => {
+const TripDetails = ({ tripData, location, details, userId }) => {
   let {
     country,
     lengthOfTrip,
@@ -14,6 +15,7 @@ const TripDetails = ({ tripData, location, details }) => {
   } = tripData;
 
   country = country.charAt(0).toUpperCase() + country.slice(1);
+  location = location.charAt(0).toUpperCase() + location.slice(1);
 
   let currency;
   let convert;
@@ -121,7 +123,7 @@ const TripDetails = ({ tripData, location, details }) => {
       symbol = " ฿ ";
       break;
     case "Indonesia":
-      currency = " Indonesian rupiah";
+      currency = " Indonesian Rupiah";
       convert = 0.000067;
       symbol = " Rp ";
       break;
@@ -145,14 +147,16 @@ const TripDetails = ({ tripData, location, details }) => {
     parseInt(transportation) +
     parseInt(flight) +
     parseInt(misc);
-  const conBudget = Math.round(budget * convert);
-  const dailyExpCon = Math.round(conBudget / lengthOfTrip);
+  let conBudget = (budget / convert).toFixed(2);
+  console.log(conBudget);
+  // conBudget = Math.round(conBudget);
+  let dailyExpCon = (conBudget / lengthOfTrip).toFixed(2);
 
-  roomBoard = roomBoard * convert;
-  food = food * convert;
-  transportation = transportation * convert;
-  flight = flight * convert;
-  misc = misc * convert;
+  roomBoard = (roomBoard / convert).toFixed(2);
+  food = (food / convert).toFixed(2);
+  transportation = (transportation / convert).toFixed(2);
+  flight = (flight / convert).toFixed(2);
+  misc = (misc / convert).toFixed(2);
 
   const data = {
     labels: ["Room and Board", "Food", "Transportation", "Flight", "Misc"],
@@ -160,7 +164,13 @@ const TripDetails = ({ tripData, location, details }) => {
       {
         label: `${location} Budget`,
         data: [roomBoard, food, transportation, flight, misc],
-        backgroundColor: ["#134a63", "#31708E", "#5085A5", "#8FC1E3", "#adc9db"],
+        backgroundColor: [
+          "#134a63",
+          "#31708E",
+          "#5085A5",
+          "#8FC1E3",
+          "#adc9db",
+        ],
       },
     ],
   };
@@ -188,7 +198,7 @@ const TripDetails = ({ tripData, location, details }) => {
             />
           </div>
           <div className="col s12" style={{ color: "#fff" }}>
-            <h5 className="main-blue">{location} info</h5>
+            <h5 className="main-blue">{location} Info</h5>
             <table className="centered">
               <tbody>
                 <tr>
@@ -252,6 +262,17 @@ const TripDetails = ({ tripData, location, details }) => {
           <Doughnut data={data} style />
           <p>{details}</p>
         </div>
+        <Link
+          to={{ pathname: "/budget", userId: userId }}
+          className="waves-effect white-text create_btn collection-header"
+          style={{ width: "auto" }}
+        >
+          {" "}
+          Create A Trip
+          <span style={{ float: "right" }}>
+            <i className="material-icons">add</i>
+          </span>
+        </Link>
       </div>
     </motion.div>
   );

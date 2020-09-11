@@ -1,20 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const TripItem = ({ location, isSelected, selectTrip }) => {
+const TripItem = ({ tripName, isSelected, selectTrip }) => {
+  tripName = tripName.charAt(0).toUpperCase() + tripName.slice(1);
   return (
-    <a
+    <motion.a
+      initial="hidden"
+      animate="visible"
+      transition={{ delay: 0.25, duration: 0.6 }}
       title="View Chart"
       className="collection-item"
       isSelected={isSelected}
       onClick={selectTrip}
       style={{ color: "#5085a5" }}
     >
-      {location}
+      {tripName}
       <span style={{ float: "right" }}>
         <i className="material-icons">place</i>
       </span>
-    </a>
+    </motion.a>
   );
 };
 
