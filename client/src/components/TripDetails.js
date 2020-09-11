@@ -23,99 +23,124 @@ const TripDetails = ({ projectData, location, details }) => {
 
   switch (country) {
     case "Australia":
-      currency = "Australian dollar";
+      currency = " Australian dollar";
       convert = 0.73;
-      symbol = "$ ";
+      symbol = " $ ";
       break;
     case "Brazil":
-      currency = "Brazilian real";
+      currency = " Brazilian real";
       convert = 0.19;
-      symbol = "R$ ";
+      symbol = " R$ ";
       break;
     case "Canada":
-      currency = "Canadian dollar";
+      currency = " Canadian dollar";
       convert = 0.76;
-      symbol = "$ ";
+      symbol = " $ ";
       break;
     case "Egypt":
-      currency = "Egyptian pound";
+      currency = " Egyptian pound";
       convert = 0.063;
-      symbol = "e£ ";
+      symbol = " e£ ";
       break;
     case "France":
-      currency = "Euro";
+      currency = " Euro";
       convert = 1.18;
-      symbol = "€ ";
+      symbol = " € ";
       break;
     case "Greece":
-      currency = "Euro";
+      currency = " Euro";
       convert = 1.18;
-      symbol = "€ ";
+      symbol = " € ";
       break;
     case "Germany":
-      currency = "Euro";
+      currency = " Euro";
       convert = 1.18;
-      symbol = "€ ";
+      symbol = " € ";
       break;
     case "India":
-      currency = "Indian rupee";
+      currency = " Indian rupee";
       convert = 0.014;
-      symbol = "₹ ";
+      symbol = " ₹ ";
       break;
     case "Japan":
-      currency = "Japanese yen";
+      currency = " Japanese yen";
       convert = 0.0094;
-      symbol = "¥ ";
+      symbol = " ¥ ";
       break;
     case "Mexico":
-      currency = "Mexican peso";
+      currency = " Mexican peso";
       convert = 0.046;
-      symbol = "$ ";
+      symbol = " $ ";
       break;
     case "Norway":
-      currency = "Norwegian krone";
+      currency = " Norwegian krone";
       convert = 0.11;
-      symbol = "kr ";
+      symbol = " kr ";
       break;
     case "Russia":
-      currency = "Russian ruble";
+      currency = " Russian ruble";
       convert = 0.013;
-      symbol = "RUB ";
+      symbol = " RUB ";
       break;
     case "South Korea":
-      currency = "South Korean won";
+      currency = " South Korean won";
       convert = 0.00084;
-      symbol = "₩ ";
+      symbol = " ₩ ";
       break;
     case "Switzerland":
-      currency = "Swiss franc";
+      currency = " Swiss franc";
       convert = 1.09;
-      symbol = "CHF ";
+      symbol = " CHF ";
       break;
     case "Taiwan":
-      currency = "New Taiwan dollar";
+      currency = " New Taiwan dollar";
       convert = 0.034;
-      symbol = "$ ";
+      symbol = " NTD$ ";
       break;
     case "England":
-      currency = "Pound (sterling)";
+      currency = " Pound (sterling)";
       convert = 1.32;
-      symbol = "£ ";
+      symbol = " £ ";
       break;
     case "Vietnam":
-      currency = "Vietnamese dong";
+      currency = " Vietnamese dong";
       convert = 0.000043;
-      symbol = "đ ";
+      symbol = " đ ";
       break;
     case "China":
-      currency = "Renminbi";
+      currency = " Renminbi";
       convert = 0.15;
-      symbol = "¥ ";
+      symbol = " ¥ ";
       break;
-
+    case "Morocco":
+      currency = " Moroccan dirham";
+      convert = 0.11;
+      symbol = " DH ";
+      break;
+    case "Thailand":
+      currency = " Thai baht";
+      convert = 0.032;
+      symbol = " ฿ ";
+      break;
+    case "Indonesia":
+      currency = " Indonesian rupiah";
+      convert = 0.000067;
+      symbol = " Rp ";
+      break;
+    case "Costa Rica":
+      currency = " Costa Rican colón";
+      convert = 0.0017;
+      symbol = " ₡ ";
+      break;
+    case "Spain":
+      currency = " Euro";
+      convert = 1.18;
+      symbol = " € ";
+      break;
     default:
       console.log("Country not available!");
   }
+
   const budget = roomBoard + food + transportation + flight + misc;
   const conBudget = budget * convert;
   const dailyExpCon = Math.round(conBudget / lengthOfTrip);
@@ -132,7 +157,7 @@ const TripDetails = ({ projectData, location, details }) => {
       {
         label: `${location} Budget`,
         data: [roomBoard, food, transportation, flight, misc],
-        backgroundColor: ["#134a63", "#31708E", "#5085A5", "#8FC1E3"],
+        backgroundColor: ["#134a63", "#31708E", "#5085A5", "#8FC1E3", "#adc9db"],
       },
     ],
   };
@@ -142,51 +167,89 @@ const TripDetails = ({ projectData, location, details }) => {
       animate={{ x: 0 }}
       transition={{ duration: 0.6 }}
       className="card-panel"
-      style={{ textAlign: "center", backgroundColor: "#f7f9fb" }}
+      style={{
+        textAlign: "center",
+        backgroundColor: "#f7f9fb",
+        padding: "25px 0 25px 0",
+      }}
     >
-      <h4 style={{ color: "#4b91b3" }}>My {data.datasets[0].label}</h4>{" "}
-      <br></br>
-      <img
-        src={`/img/${country}.jpg`}
-        alt={details}
-        width="500"
-        height="250"
-      />{" "}
-      <div className="row ">
-        <div className="col s3"></div>
-        <span className="col s3 trip-details">Destination: {country}</span>
-        <span
-          className="col s3 trip-details"
-          style={{ backgroundColor: "#687864" }}
-        >
-          Currency: {currency}
-        </span>
-        <div className="col s3"></div>
+      <div className="container">
+        <div className="row">
+          <h4 className="main-blue">My {data.datasets[0].label}</h4>{" "}
+          <div className="row" style={{ textAlign: "center" }}>
+            <img
+              src={`/img/${country}.jpg`}
+              alt={details}
+              width="500"
+              height="250"
+            />
+          </div>
+          <div className="col s12" style={{ color: "#fff" }}>
+            <h5 className="main-blue">{location} info</h5>
+            <table className="centered">
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: "#31708e",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    Destination: {country}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: "#889c5a",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    Budget: {symbol}
+                    {conBudget}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: "#31708e",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    Currency:{currency}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: "#889c5a",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    Trip Length: {lengthOfTrip} Days
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: "#31708e",
+                      borderRadius: "0px",
+                    }}
+                  >
+                    Estimated Daily Expense:{"  "}
+                    {symbol}
+                    {dailyExpCon}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="row">
+          <Doughnut data={data} style />
+          <p>{details}</p>
+        </div>
       </div>
-      <div className="row ">
-        <div className="col s3"></div>
-        <span
-          className="col s3 trip-details"
-          style={{ backgroundColor: "#687864" }}
-        >
-          Trip Length: {lengthOfTrip} Days
-        </span>
-        <span className="col s3 trip-details">
-          Budget: {symbol}
-          {conBudget}
-        </span>
-        <div className="col s3"></div>
-      </div>
-      <div className="row ">
-        <div className="col s4"></div>
-        <span className="col s4 trip-details">
-          Estimated Daily Expense: {symbol}
-          {dailyExpCon}
-        </span>
-        <span className="col s4"></span>
-      </div>
-      <Doughnut data={data} />
-      <p>{details}</p>
     </motion.div>
   );
 };
