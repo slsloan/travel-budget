@@ -16,7 +16,7 @@ Link to heroku deployment: https://rocky-scrubland-02427.herokuapp.com/
 
 ### Overview
 
-For project three we were tasked at building an app using MERN stack. We decided on a travel budgeting app that allowed the user to create a profile that they could add new trips to.
+For project three we were tasked at building an app using MERN stack. We decided on a travel budgeting app that allowed the user to create a profile that they could add new trips to and allocate funds to specific categories for each individual trip.
 
 ```
 AS A traveler with a limited budget
